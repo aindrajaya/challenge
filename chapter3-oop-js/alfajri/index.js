@@ -7,6 +7,7 @@ class Tumbuhan{
 
     siram(){
         this.tinggi += 1;
+        console.log(this.tinggi);
     }
 }
 
@@ -14,7 +15,14 @@ class Pisang extends Tumbuhan{
     constructor(nama,jenis,tinggi,akar){
         super(nama,jenis,tinggi);
         this.akar = akar;
+        
     }
+
+    tumbuh = ()=>{
+        this.siram();
+    }
+
+    
 }
 
 class Anggur extends Tumbuhan{
@@ -52,4 +60,5 @@ let Durians = new Durian('Durian','buah',25,'serabut');
 let Manggas = new Mangga('Mangga','buah',22,'serabut');
 let Rambutans = new Rambutan('Rambutan','buah',12,'serabut');
 
-console.log(Rambutans);
+console.log(Pisangs.tumbuh);
+Pisangs.tumbuh();
