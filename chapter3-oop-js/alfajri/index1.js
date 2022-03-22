@@ -52,6 +52,12 @@ class Pesawat extends Kendaraan{
         this.kecepatan =kecepatan;
         this.sayap =sayap;
     }
+
+    tinggi = 0;
+    terbang = () => {
+        this.tinggi += 50;
+        console.log(this.tinggi);
+    }
 }
 
 let Beat = new Motor('beat','matic',50);
@@ -62,3 +68,4 @@ let Boing = new Pesawat('Boing 677','penumpang',450,2);
 
 
 console.log(Boing)
+Boing.terbang();

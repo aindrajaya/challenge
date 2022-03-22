@@ -21,7 +21,7 @@ class Kucing extends Hewan{
     }
 
     meong = ()=>{
-        console.log(`aku ${this.nama}`);
+        console.log(`meow meow ${this.nama}`);
     }
 }
 
@@ -29,6 +29,10 @@ class Anjing extends Hewan{
     constructor(nama,energi,jenis){
         super(nama,energi);
         this.jenis =jenis;
+    }
+
+    bark = ()=>{
+        console.log(`guk guk ${this.nama}`);
     }
 }
 
@@ -62,3 +66,4 @@ let Kura = new KuraKura('Hias',10,100);
 
 //console.log(Anggora,Buldog,Aligator,GajahAfrika,Kura)
 Anggora.meong();
+Buldog.bark();
