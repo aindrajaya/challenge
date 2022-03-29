@@ -1,23 +1,31 @@
-import { BrowserRouter, Link, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Link, Navigate, Outlet, Route, Routes } from 'react-router-dom';
 // import './App.css'; //Global
 import Landing from './pages/Landing';
+import { Login } from './pages/Login';
 import { Team } from './pages/Team';
 import Testimonial from './pages/Testimonial';
 
 function App() {
+  const auth = useAuth()
+
   return (
     <BrowserRouter>
-      <Header />
+      {auth ? <Header />: null}
       <Routes>
         <Route path='/' element={<Landing />}/>
         <Route 
           path='/testimonial' 
           element={
-            <PrivateRoute>
+            <HalamanYangDiproteksi>
               <Testimonial />
-            </PrivateRoute>
+            </HalamanYangDiproteksi>
           }/>
-        <Route path='/tim' element={<Team />}/>
+        <Route path='/tim' element={<PrivateOutlet />}>
+          <Route path='/tim' element={
+            <Team />
+            }/>
+        </Route>
+        <Route  path='/login' element={<Login />}/>
       </Routes>
     </BrowserRouter>
   );
@@ -53,13 +61,18 @@ const Header = () => {
   )
 }
 
-function PrivateRoute({children}){
+function HalamanYangDiproteksi({children}){
   const auth = useAuth();
   return auth ? children : <Navigate to="/login"/>
 }
 
+function PrivateOutlet(){
+  const auth = useAuth();
+  return auth ? <Outlet /> : <Navigate to="/login"/>
+}
+
 function useAuth(){
-  return true;
+  return false;
 }
 
 export default App;

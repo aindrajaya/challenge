@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Testimonial() {
+function Testimonial() {
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-24 mx-auto">
@@ -41,3 +41,5 @@ export default function Testimonial() {
     </section>
   )
 }
+
+export default Testimonial
