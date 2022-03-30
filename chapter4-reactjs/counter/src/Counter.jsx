@@ -3,26 +3,27 @@ import React, { Component } from 'react'
 export default class Counter extends Component {
   constructor(props){
     super(props);
-    //Fill this line #1
+    this.state = { count: 0 }
   }
 
-  increment = () => {
-    //Fill this line #2
+  increment = (data) => {
+
+    this.setState({ count: this.state.count + data })
   }
 
-  decrement = () => {
-    //Fill this line #3
+  decrement = (data) => {
+    this.setState({ count: this.state.count - data })
   }
 
   render() {
     return (
       <>
         <div className='box'>
-          <h1>{this.props.count}</h1>
+          <h1>{this.state.count}</h1>
         </div>
         <div className='boxCenter'>
-          {/* <button className='button-5' onClick={() => this.incrementss()}>+</button> */}
-          <button className='button-5' onClick={() => this.decrement()}>-</button>
+          <button className='button-5' onClick={() => this.increment(1)}>+</button>
+          <button className='button-5' onClick={() => this.decrement(1)}>-</button>
         </div>
       </>
     )
