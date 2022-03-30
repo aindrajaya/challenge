@@ -1,10 +1,11 @@
 import './App.css';
-import Counter from './Counter';
+import ClassCounter from './pages/ClassCounter';
+import FunctionCounter from './pages/FunctionCounter'
 
-function App() {
+const App = () => {
   return (
     <div className='container'>
-      <Counter />
+      <FunctionCounter />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class Counter extends Component {
+export default class ClassCounter extends Component {
   constructor(props){
     super(props);
     //Fill this line #1
@@ -34,7 +34,7 @@ export default class Counter extends Component {
           <button className='button-5' onClick={this.decrement}>-</button>
         </div>
         <nav>
-          Counterrrr
+          Class Counter
         </nav>
       </>
     )
