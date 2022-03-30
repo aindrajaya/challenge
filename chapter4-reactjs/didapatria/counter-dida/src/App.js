@@ -5,7 +5,7 @@ import Counter from './pages/Counter';
 function App() {
   return (
     <div className='container'>
-      <ClassCounter />
+      {/* <ClassCounter /> */}
       <Counter />
     </div>
   );
