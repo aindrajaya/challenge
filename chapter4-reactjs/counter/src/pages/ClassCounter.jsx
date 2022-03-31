@@ -40,4 +40,3 @@ export default class ClassCounter extends Component {
     )
   }
 }
-
