@@ -12,10 +12,16 @@ import Testimonial from './pages/Testimonial';
 function App() {
   const auth = useAuth()
   // 1. Buat useState, bentuknya array
+  let [data, setData] = useState([]);
 
   const getPostData =  async() => {
     try {
       //2. Panggil data json dengan fetch ('https://jsonplaceholder.typicode.com/users')
+      fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(json => {
+        setData( data = json )
+      })
     } catch (error) {
       console.log(error)
     }
@@ -23,6 +29,7 @@ function App() {
 
   useEffect(() => {
     //3. Jalankan getPostData()
+    getPostData();
   }, [])
   
   // console.log(users)
@@ -45,6 +52,7 @@ function App() {
             }/>
         </Route>
         {/* //TAMBAHKAN SATU ROUTES KE HALAMAN POST COMPONENT */}
+        <Route path='users' element={<PostComponent data={data} />}></Route>
       </Routes> 
     </BrowserRouter>
   );
@@ -74,7 +82,7 @@ const Header = () => {
               Team
           </Link>
           <Link className="mr-5 hover:text-gray-900" to="/testimonial">Testimonial</Link>
-          {/* <Link className="mr-5 hover:text-gray-900" to="/users">Get Users</Link> */}
+          {<Link className="mr-5 hover:text-gray-900" to="/users">Get Users</Link>}
         </nav>
       </div>
     </header>
