@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from '../components/Button';
 
 export const FunctionalCounter = (props) => {
   const {count, inc, dec} = props; //desctructuring
@@ -9,8 +10,9 @@ export const FunctionalCounter = (props) => {
         </div>
         <div className='boxCenter'>
           {/* Mengirim props ke Button, dan menambah props baru */}
-          <button className='button-5' onClick={inc}>+</button>
-          <button className='button-5' onClick={dec}>-</button>
+          {/* Mengirim props ke Button, dan menambah props baru */}
+          <Button act={inc} label="+"/>
+          <Button act={dec} label="-"/>
         </div>
     </div>
   )
