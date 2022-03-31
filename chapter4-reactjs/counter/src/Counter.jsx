@@ -8,10 +8,12 @@ export default class Counter extends Component {
 
   increment = () => {
     //Fill this line #2
+    
   }
 
   decrement = () => {
     //Fill this line #3
+    
   }
 
   render() {
@@ -21,7 +23,7 @@ export default class Counter extends Component {
           <h1>{this.props.count}</h1>
         </div>
         <div className='boxCenter'>
-          {/* <button className='button-5' onClick={() => this.incrementss()}>+</button> */}
+          {/* <button className='button-5' onClick={() => this.increment()}>+</button> */}
           <button className='button-5' onClick={() => this.decrement()}>-</button>
         </div>
       </>
