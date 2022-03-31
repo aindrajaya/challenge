@@ -10,7 +10,7 @@ function App() {
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <a className="App-link" href="https://github.com/ghozihaq2017" target="_blank" rel="noopener noreferrer">
-          Ghozi Izzulhaq
+          Ghozi Izzulhaqnu
         </a>
       </header>
     </div>
