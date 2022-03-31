@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>Github</p>
+        <p className="text-9xl">Github</p>
         <a
           className="App-link"
           href="https://github.com/AhmadRafly23"
