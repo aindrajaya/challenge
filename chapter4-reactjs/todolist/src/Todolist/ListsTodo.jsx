@@ -6,7 +6,7 @@ export default function ListsTodo({data, del}) {
       <ul>
         {data.map((list, idx) => (
           <div key={idx}>
-            {list.id}. {list.task}
+            {list.id}. {list.todoItem}
             <span onClick={() => del(list.id)}> X</span>
           </div>
         ))}
