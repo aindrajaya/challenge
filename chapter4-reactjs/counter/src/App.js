@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import ClassCounter from './pages/ClassCounter';
 import FunctionCounter from './pages/FunctionCounter'
