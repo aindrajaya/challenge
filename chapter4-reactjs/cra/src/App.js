@@ -1,12 +1,31 @@
+import { data } from 'autoprefixer';
+import { useEffect, useState } from 'react';
 import { BrowserRouter, Link, Navigate, Outlet, Route, Routes } from 'react-router-dom';
-// import './App.css'; //Global
+import { PostComponent } from './components/Post';
 import Landing from './pages/Landing';
 import { Login } from './pages/Login';
 import { Team } from './pages/Team';
 import Testimonial from './pages/Testimonial';
 
+
+
 function App() {
   const auth = useAuth()
+  // 1. Buat useState, bentuknya array
+
+  const getPostData =  async() => {
+    try {
+      //2. Panggil data json dengan fetch ('https://jsonplaceholder.typicode.com/users')
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    //3. Jalankan getPostData()
+  }, [])
+  
+  // console.log(users)
 
   return (
     <BrowserRouter>
@@ -25,8 +44,8 @@ function App() {
             <Team />
             }/>
         </Route>
-        <Route  path='/login' element={<Login />}/>
-      </Routes>
+        {/* //TAMBAHKAN SATU ROUTES KE HALAMAN POST COMPONENT */}
+      </Routes> 
     </BrowserRouter>
   );
 }
@@ -55,6 +74,7 @@ const Header = () => {
               Team
           </Link>
           <Link className="mr-5 hover:text-gray-900" to="/testimonial">Testimonial</Link>
+          {/* <Link className="mr-5 hover:text-gray-900" to="/users">Get Users</Link> */}
         </nav>
       </div>
     </header>
@@ -72,7 +92,7 @@ function PrivateOutlet(){
 }
 
 function useAuth(){
-  return false;
+  return true;
 }
 
 export default App;
