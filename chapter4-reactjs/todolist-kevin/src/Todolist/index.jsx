@@ -25,7 +25,7 @@ export default function TodolistComponent() {
 
   useEffect(() => {
     getTodo()
-  }, [setTodos])
+  }, [pickTodo])
 
   console.log(todoValue);
 
@@ -62,21 +62,38 @@ export default function TodolistComponent() {
   const submitEditForm = async(e) => {
     e.preventDefault();
     await axios.put(`http://localhost:3008/todos/${pickTodo.id}`, pickTodo)
+    updateItemOnState(pickTodo.id, pickTodo);
   }
 
   const updateItemOnState = (pickId, updatePickTodo) => {
+    console.log(pickId, updatePickTodo);
     const updateTodo = todos.map((todo) => {
       return todo.id === pickId ? updatePickTodo : todo;
     });
     setIsEdit(false);
-    setTodoValue(updateTodo);
+    setPickTodo(updateTodo);
   }
 
   return (
     <div>
-      {isEdit ? (<EditForm currentTodo={pickTodo} setIsEdit={setIsEdit} editTodo={editTodoOnChange} updateDataSubmit={submitEditForm} />) : (<TodoForm klik={addTodo} value={todoValue} setValue={setTodoValue}/>)}
+      {isEdit ? 
+      ( <EditForm 
+          currentTodo={pickTodo} 
+          setIsEdit={setIsEdit} 
+          editTodo={editTodoOnChange} 
+          updateDataSubmit={submitEditForm} 
+      /> ) : 
+      ( <TodoForm 
+          klik={addTodo} 
+          value={todoValue} 
+          setValue={setTodoValue} 
+      />)}
       <hr />
-      <ListsTodo data={todos} del={deleteTodo} edit={editTodo} />
+      <ListsTodo 
+        data={todos} 
+        del={deleteTodo} 
+        edit={editTodo} 
+      />
     </div>
   )
 }
