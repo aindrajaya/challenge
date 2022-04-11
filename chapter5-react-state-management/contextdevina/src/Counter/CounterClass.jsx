@@ -37,7 +37,7 @@ class CounterClass extends React.Component {
       //Tambahkan batasan count === min, menggunakan props
       const {min, step} = this.props
       this.setState((state) => {
-        if(state.count <= min) return;
+        if(state.count === min) return;
         return {count: state.count - step}
       })
   }
