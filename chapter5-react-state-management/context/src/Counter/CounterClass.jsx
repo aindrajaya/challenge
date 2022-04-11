@@ -19,6 +19,13 @@ class CounterClass extends React.Component {
     this.setState(
       {count: this.state.count + 1}
       );
+    this.incrementUsingProps = this.incrementUsingProps.bind(this)
+  }
+
+  increment(){
+    this.setState(
+      {count: this.state.count + 1}
+    );
   }
 
   incrementUsingProps(){
@@ -49,13 +56,25 @@ class CounterClass extends React.Component {
       );
   }
 
+  decrement(){
+    this.setState({count: this.state.count - 1});
+  }
+
+  reset(){
+    this.setState({count: 0});
+  }
+
   render(){
     return(
       <div className="Counter">
         <p className="count">{this.state.count}</p>
         <section className="controls">
           <button onClick={this.incrementUsingProps}>Increment</button>
+<<<<<<< HEAD
           <button onClick={this.decrementUsingProps}>Decrement</button>
+=======
+          <button onClick={this.decrement}>Decrement</button>
+>>>>>>> d0014cac4ff53b0f85e3e93fa8e5914c1a7f583c
           <button onClick={this.reset}>Reset</button>
         </section>
       </div>
