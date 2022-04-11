@@ -13,6 +13,7 @@ class CounterClass extends React.Component {
 
     //using props
     this.incrementUsingProps = this.incrementUsingProps.bind(this)
+    this.decrementUsingProps = this.decrementUsingProps.bind(this)
   }
 
   increment(){
@@ -34,6 +35,14 @@ class CounterClass extends React.Component {
     this.setState({count: this.state.count - 1});
   }
 
+  decrementUsingProps(){
+    const {min, step} = this.props
+    this.setState((c) => {
+      if(c.count === min) return;
+      return {count: c.count - step}
+    })
+  }
+
   reset(){
     this.setState({count: 0});
   }
@@ -44,7 +53,7 @@ class CounterClass extends React.Component {
         <p className="count">{this.state.count}</p>
         <section className="controls">
           <button onClick={this.incrementUsingProps}>Increment</button>
-          <button onClick={this.decrement}>Decrement</button>
+          <button onClick={this.decrementUsingProps}>Decrement</button>
           <button onClick={this.reset}>Reset</button>
         </section>
       </div>
