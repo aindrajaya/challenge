@@ -12,16 +12,14 @@ import Testimonial from './pages/Testimonial';
 function App() {
   const auth = useAuth()
   // 1. Buat useState, bentuknya array
-  let [data, setData] = useState([]);
+  let [data, setUsers] = useState([]);
 
   const getPostData =  async() => {
     try {
       //2. Panggil data json dengan fetch ('https://jsonplaceholder.typicode.com/users')
-      fetch('https://jsonplaceholder.typicode.com/users')
-      .then(response => response.json())
-      .then(json => {
-        setData( data = json )
-      })
+      const response = await fetch('https://jsonplaceholder.typicode.com/users')
+      const datas = await response.json();
+      setUsers(datas);
     } catch (error) {
       console.log(error)
     }
