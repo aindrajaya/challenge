@@ -7,7 +7,7 @@ const getStateFromLocalStorage = () => {
   return { count: 0 };
 }
 class CounterClass extends React.Component {
-  constructor(props) {
+  constructor(props){
     super(props);
     this.state = {
       count: getStateFromLocalStorage()
