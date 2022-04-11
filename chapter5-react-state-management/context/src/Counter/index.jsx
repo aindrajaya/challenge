@@ -5,11 +5,13 @@ import './styles.scss'
 import CounterClass from "./CounterClass";
 // import CounterFunc from "./CounterFunc";
 
+const itemRemaining = 5;
+
 const CounterApp = () => {
   return(
     <main className="Application">
       <section className="Counters">
-        <CounterClass />
+        <CounterClass max={itemRemaining} min={0} step={1}/>
         {/* <CounterFunc /> */}
       </section>
     </main>
