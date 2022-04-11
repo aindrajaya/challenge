@@ -36,7 +36,7 @@ function App() {
   }, []);
 
   // console.log(users)
-  // console.log(data);
+  console.log(data);
 
   return (
     <BrowserRouter>

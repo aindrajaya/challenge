@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react'
-import Landing from './Landing'
+import React, { Fragment } from "react";
+import Landing from "./Landing";
 
 export default function Layout() {
   return (
-    <Fragment>    
+    <Fragment>
       <Header />
       <Route>
         <Landing />
@@ -11,5 +11,5 @@ export default function Layout() {
       </Route>
       <Footer />
     </Fragment>
-  )
+  );
 }
