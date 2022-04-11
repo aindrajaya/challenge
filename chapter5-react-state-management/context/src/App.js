@@ -1,4 +1,4 @@
-import CounterApp from './Counter';
+import CounterApp from './Counter/index';
 
 function App() {
   return (
