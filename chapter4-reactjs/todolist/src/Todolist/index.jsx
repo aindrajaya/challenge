@@ -3,11 +3,13 @@ import ListsTodo from './ListsTodo';
 import TodoForm from './TodoForm';
 import axios from 'axios';
 import uuidv4 from 'uuidv4';
+import EditTodolist from './EditTodo';
 
 export default function TodolistComponent() {
   let [todos, setTodos] = useState([]); //declare useState dengan data array, sebagai tempat untuk menymipan list
   let [todoValue, setTodoValue] = useState(''); //todoValue sebagai variable untuk menyimpan inputan dari from, berupa string
   let [todos2, setTodos2] = useState([])
+  const [todoItem, setTodoItem] = useState({})
 
   const getTodo = async () => {
     try {
@@ -30,12 +32,12 @@ export default function TodolistComponent() {
   const addTodo = async (e) => {
     e.preventDefault(); //avoid re-render react
     if(todoValue === "") return; //validasi dulu, cek di dalma form ada tulisan
-    const add = {
+    const todoAdd = {
       id: uuidv4(),
       todo: todoValue
     };
-    await axios.post('http://localhost:3008/todos', add)
-    setTodos2([...todos2, add]) //update data di variable todos, menambahkan todolist item
+    await axios.post('http://localhost:3008/todos', todoAdd)
+    setTodos2([...todos2, todoAdd]) //update data di variable todos, menambahkan todolist item
     setTodoValue('') //mengosongkan kembali form
   }
 
@@ -45,11 +47,27 @@ export default function TodolistComponent() {
     setTodos2(todoFilter)
   }
 
+  const updateEvent = async (todoItem) => {
+    const res = await axios.put(`http://localhost:3008/todos/${todoItem.id}`, todoItem)
+    const {id, todo} = res.data //dari axios, lalu di destructuring
+    setTodos2(
+      todos2.map((todos2Item) => {
+        return todos2Item.id === id? {...res.data} : todos2Item
+      })
+    )
+  }
+
+
+  const getId = (item) => {
+    setTodoItem(item) // {id: a, todo: todo}
+  }
+
   return (
     <div>
       <TodoForm klik={addTodo} value={todoValue} setValue={setTodoValue}/>
       <hr />
-      <ListsTodo data={todos2} del={deleteTodo}/>
+      <ListsTodo data={todos2} del={deleteTodo} getIdToUpdate={getId}/>
+      <EditTodolist data={todoItem} update={updateEvent}/>
     </div>
   )
 }

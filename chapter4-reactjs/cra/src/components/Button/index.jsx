@@ -1,5 +1,5 @@
 import React from 'react'
-// import bebas from "./button.module.css";
+import bebas from "./button.module.css";
 
 export const Button = () => {
   // const handleClick = console.log("Dipencet")
