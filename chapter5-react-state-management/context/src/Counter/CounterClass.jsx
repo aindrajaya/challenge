@@ -8,7 +8,7 @@ const getStateFromLocalStorage = () => {
 }
 
 class CounterClass extends React.Component {
-  constructor(props) {
+  constructor(props){
     super(props);
     this.state = {
       count: getStateFromLocalStorage(),
@@ -18,16 +18,12 @@ class CounterClass extends React.Component {
     this.decrement = this.decrement.bind(this);
     this.reset = this.reset.bind(this)
 
-    this.incrementUsingProps = this.incrementUsingProps.bind(this);
-    this.decrementUsingProps = this.decrementUsingProps.bind(this);
-    this.incrementFromLocalStorage = this.incrementFromLocalStorage.bind(this)
-  }
-
-  increment() {
-    this.setState(
-      {count: this.state.count + 1}
-      );
+    //using props
     this.incrementUsingProps = this.incrementUsingProps.bind(this)
+    this.decrementUsingProps = this.decrementUsingProps.bind(this)
+
+    //Local Storage
+    this.incrementFromLocalStorage = this.incrementFromLocalStorage.bind(this)
   }
 
   increment(){
@@ -37,43 +33,31 @@ class CounterClass extends React.Component {
   }
 
   incrementUsingProps(){
-    const {max, step} = this.props
-    this.setState((c) => {
-      this.setState((c) => {
-        if(c.count >= max) return;
-        return {count: c.count + step}
-      })
-    });
-  }
-
-  decrement() {
-    this.setState(
-      {count: this.state.count - 1}
-      );
-  }
-
-  decrementUsingProps(){
-    const {min, step} = this.props
-    this.setState((c) => {
-      if(c.count === min) return;
-      return{count: c.count - step};
-    });
-  }
-
-  reset(){
-    this.setState(
-      {count: 0}
-      );
+    const {max, step} = this.props //menggunakan destructuring
+    this.setState((c) => { //c itu bisa diubah apapun, dia menggantikan this.state, seperti fungsi map()
+      if(c.count >= max) return;
+      return {count: c.count + step}
+    })
   }
 
   decrement(){
+    //Tambahkan batasan count === min, menggunakan props
     this.setState({count: this.state.count - 1});
+  }
+
+  decrementUsingProps(){
+    const {min, step} = this.props //menggunakan destructuring
+    this.setState((c) => { //c itu bisa diubah apapun, dia menggantikan this.state, seperti fungsi map()
+      if(c.count === min) return;
+      return {count: c.count - step}
+    })
   }
 
   reset(){
     this.setState({count: 0});
   }
 
+  //Function localStorage
   incrementFromLocalStorage(){
     this.setState(
       (state, props) => {
