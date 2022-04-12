@@ -1,11 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 
-const CounterFunc = () => {
-  const [count, setCount] = useState(0);
+const CounterFunc = ({max, step, min}) => {
+  const [count, setCount] = React.useState(0);
 
-  const increment = () => setCount(count + 1)
-  const decrement = () => setCount(count - 1)
-  const reset = () => setCount(0)
+  const increment = () => {
+    if(count >= max) return alert("item sudah habis");
+    return setCount(count + step);
+  };
+
+  React.useEffect(() => {
+    document.title = `Your counter is: ${count}`
+  }, [count]);
+
+  const decrement = () => {
+    if(count === min) return alert("item sudah habis");
+    return setCount(count - step);
+  };
+
+  const reset = () => setCount(0);
 
   return(
     <div className="Counter">
@@ -16,7 +28,7 @@ const CounterFunc = () => {
         <button onClick={reset}>Reset</button>
       </section>
     </div>
-  )
-}
+  );
+};
 
 export default CounterFunc;
