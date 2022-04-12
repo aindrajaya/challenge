@@ -10,11 +10,17 @@ const CounterFunc = ({max, step, min}) => {
   }
 
   //Side effect, adalah proses lain yang di jalankan selain proses utama
+
+  const decrement = () => {
+    if(count === min) return alert("Sudah mencapai batas");
+    return setCount(count - step)
+  }
+
   React.useEffect(() => {
-    //componentDidMount -> untuk update title, sesuai dengan state count
-  }, []) //dependencies, merupaka sesuatu pengubah
+    document.title = `Angka Sekarang : ${count}`//componentDidMount -> untuk update title, sesuai dengan state count
+  }, [count]) //dependencies, merupaka sesuatu pengubah
   
-  const decrement = () =>  setCount(count - 1)
+  
   const reset = () => setCount(0)
 
   return(
