@@ -14,7 +14,10 @@ const CounterFunc = ({max, step, min}) => {
     //componentDidMount -> untuk update title, sesuai dengan state count
   }, []) //dependencies, merupaka sesuatu pengubah
   
-  const decrement = () =>  setCount(count - 1)
+  const decrement = () => {
+    if(count === min) return alert("item sudah mencapai batas");
+    return setCount(count - step)
+  }
   const reset = () => setCount(0)
 
   return(
