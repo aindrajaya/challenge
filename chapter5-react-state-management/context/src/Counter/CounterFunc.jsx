@@ -1,11 +1,32 @@
-const CounterFunc = () => {
-  return(
+import React from "react";
+
+const CounterFunc = ({ max, step, min }) => {
+  const [count, setCount] = React.useState(0)
+
+  const increment = () => {
+    if (count >= max) return alert("sudah mencapai batas maksimal");
+    return setCount(count + 1)
+  }
+
+  const decrement = () => {
+    if (count <= min) return alert("sudah mencapai batas minimal");
+    return setCount(count - 1)
+  }
+
+  //Side effect, proses lain yang dijalankan selain proses utama
+  React.useEffect(() => {
+    document.title = `Your counter is:  ${count}` //componentDidMount = untuk update title
+  }, [count]) //dependencies, sesuatu pengubah
+
+  const reset = () => setCount(0)
+
+  return (
     <div className="Counter">
-      <p className="count">0</p>
+      <p className="count">{count}</p>
       <section className="controls">
-        <button>Increment</button>
-        <button>Decrement</button>
-        <button>Reset</button>
+        <button onClick={increment}>Increment</button>
+        <button onClick={decrement}>Decrement</button>
+        <button onClick={reset}>Reset</button>
       </section>
     </div>
   )
