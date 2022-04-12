@@ -8,6 +8,7 @@ const CounterFunc = ({ max, step, min }) => {
     return setCount(count + 1)
   }
 
+
   const decrement = () => {
     if (count <= min) return alert("sudah mencapai batas minimal");
     return setCount(count - 1)
