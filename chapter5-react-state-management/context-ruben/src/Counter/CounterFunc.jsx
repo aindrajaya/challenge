@@ -1,11 +1,19 @@
+import React, { useState } from "react";
+
 const CounterFunc = () => {
+  const [count, setCount] = useState(0);
+
+  const increment = () => setCount(count + 1)
+  const decrement = () => setCount(count - 1)
+  const reset = () => setCount(0)
+
   return(
     <div className="Counter">
-      <p className="count">0</p>
+      <p className="count">{count}</p>
       <section className="controls">
-        <button>Increment</button>
-        <button>Decrement</button>
-        <button>Reset</button>
+        <button onClick={increment}>Increment</button>
+        <button onClick={decrement}>Decrement</button>
+        <button onClick={reset}>Reset</button>
       </section>
     </div>
   )
