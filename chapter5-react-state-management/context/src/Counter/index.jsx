@@ -1,21 +1,21 @@
-import React from "react";
-import './styles.scss'
+import React from 'react';
+import './styles.scss';
 
 //Component
-import CounterClass from "./CounterClass";
-// import CounterFunc from "./CounterFunc";
+import CounterClass from './CounterClass';
+// import CounterFunc from './CounterFunc';
 
 const itemRemaining = 5;
 
 const CounterApp = () => {
-  return(
+  return (
     <main className="Application">
       <section className="Counters">
-        <CounterClass max={itemRemaining} min={0} step={1}/>
+        <CounterClass max={itemRemaining} min={0} step={1} />
         {/* <CounterFunc /> */}
       </section>
     </main>
-  )
-}
+  );
+};
 
-export default CounterApp
+export default CounterApp;

@@ -1,5 +1,5 @@
 const CounterFunc = () => {
-  return(
+  return (
     <div className="Counter">
       <p className="count">0</p>
       <section className="controls">
@@ -8,7 +8,7 @@ const CounterFunc = () => {
         <button>Reset</button>
       </section>
     </div>
-  )
-}
+  );
+};
 
 export default CounterFunc;

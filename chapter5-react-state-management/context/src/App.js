@@ -1,9 +1,7 @@
 import CounterApp from './Counter';
 
 function App() {
-  return (
-    <CounterApp />
-  );
+  return <CounterApp />;
 }
 
 export default App;
