@@ -7,8 +7,8 @@ const CounterFunc = ({max, step, min}) => {
   const increment = () => {
       if(count >= max) return alert("item sudah habis");
       return setCount(count + step) //boolean + number
-  // console.log("after inc", count)
   }
+  console.log("after", count+1)
 
   //Side effect, proses lain yang dijalankan selain proses utama
   React.useEffect(() => {
@@ -21,6 +21,7 @@ const CounterFunc = ({max, step, min}) => {
     if(count === min) return alert("sudah mencapai batas minimum");
     return setCount(count - step)
   }
+  console.log("before", count-1)
 
   const reset = () => setCount(0)
   return(
