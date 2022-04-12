@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const CounterFunc = ({max, min, step}) => {
   // const [count, setCount] = useState(0);
@@ -11,6 +11,12 @@ const CounterFunc = ({max, min, step}) => {
   
   const [count, setCount] = useState(getStateFromLocalStorage({ count: 0 }));
   // console.log(count);
+
+  // side effect (efek samping) merupakan Proses lain yang dijalankan selain proses utama
+  useEffect(() => {
+    document.title = `Your counter: ${count}` //componentDidMount
+  }, [count]) //dependencies, merupakan suatu pengubah. Apabila nilai count berubah maka useEffect akan dijalankan
+  
 
   // !Functional Component 
   // !Menggunakan useState, belum bisa menyimpan di local storage
@@ -37,14 +43,14 @@ const CounterFunc = ({max, min, step}) => {
   // !Menggunakan useState, bisa menyimpan di localstorage ada max, min, dan step
   const incrementFromLocalStorage = () => {
     let tambah = count + step;
-    if(count >= max) return false;
+    if(count >= max) return alert("item sudah habis");
     setCount(tambah);
     localStorage.setItem("counterStorage", JSON.stringify({ count: tambah }));
   }
 
   const decrementFromLocalStorage = () => {
     let kurang = count - step;
-    if(count <= min) return false;
+    if(count <= min) return alert("item sudah habis");
     setCount(kurang);
     localStorage.setItem("counterStorage", JSON.stringify({ count: kurang }));
   }
