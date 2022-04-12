@@ -1,11 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const CounterFunc = () => {
+const CounterFunc = (props) => {
   const [count, setCount] = useState(0)
 
-  const increment = () => setCount(count + 1)
-  const decrement = () => setCount(count - 1)
+  const increment = () => {
+    if(count >= props.max) return alert("item sudah habis");
+    setCount(count + props.step)
+  }
+
+  const decrement = () => {
+    if(count === props.min) return alert("item sudah penuh");
+    setCount(count - props.step)
+  }
+  
   const reset = () => setCount(0)
+
+  useEffect(() => {
+    document.title = `Count: ${count}`
+  }, [count])
 
   return(
     <div className="Counter">

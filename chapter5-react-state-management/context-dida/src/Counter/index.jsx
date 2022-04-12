@@ -12,7 +12,7 @@ const CounterApp = () => {
     <main className="Application">
       <section className="Counters">
         {/* <CounterClass max={itemRemaining} min={0} step={1}/> */}
-        <CounterFunc />
+        <CounterFunc max={itemRemaining} min={0} step={1} />
       </section>
     </main>
   )
