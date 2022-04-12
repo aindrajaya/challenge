@@ -2,7 +2,7 @@ import React from "react";
 import './styles.scss'
 
 //Component
-// import CounterClass from "./CounterClass";
+//import CounterClass from "./CounterClass";
 import CounterFunc from "./CounterFunc";
 
 const itemRemaining = 5;

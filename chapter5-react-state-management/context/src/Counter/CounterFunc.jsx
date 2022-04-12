@@ -9,12 +9,17 @@ const CounterFunc = ({max, step, min}) => {
     return setCount(count + step)
   }
 
+  const decrement = () =>  {
+    if(count === min) return alert("item sudah penuh");
+    return setCount(count - step)
+  }
+
   //Side effect, adalah proses lain yang di jalankan selain proses utama
   React.useEffect(() => {
     //componentDidMount -> untuk update title, sesuai dengan state count
-  }, []) //dependencies, merupaka sesuatu pengubah
+    document.title = `Count: ${count}`
+  }, [count]) //dependencies, merupaka sesuatu pengubah
   
-  const decrement = () =>  setCount(count - 1)
   const reset = () => setCount(0)
 
   return(
