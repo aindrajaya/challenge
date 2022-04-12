@@ -1,18 +1,23 @@
-import React from 'react';
+import React from "react";
 
-const CounterFunc = (props) => {
-  const [count, setCount] = React.useState(0)
+const CounterFunc = ({ max, step, min }) => {
+  const [count, setCount] = React.useState(0);
+  // const [count, setCount] = useState(0)
 
   const increment = () => {
-    setCount((count) =>{
-      if (count >= props.max) return;
-      return count + props.step
-    });
-  }
+    if (count >= max) return alert("item sudah habis");
+    return setCount(count + step);
+  };
 
-  const decrement = () => setCount(count -1)
-  const reset = () => setCount(0)
-  return(
+  //Side effect, adalah proses lain yang di jalankan selain proses utama
+  React.useEffect(() => {
+    //componentDidMount -> untuk update title, sesuai dengan state count
+  }, []); //dependencies, merupaka sesuatu pengubah
+
+  const decrement = () => setCount(count - 1);
+  const reset = () => setCount(0);
+
+  return (
     <div className="Counter">
       <p className="count">{count}</p>
       <section className="controls">
@@ -21,7 +26,7 @@ const CounterFunc = (props) => {
         <button onClick={reset}>Reset</button>
       </section>
     </div>
-  )
-}
+  );
+};
 
 export default CounterFunc;
