@@ -7,6 +7,7 @@ import CounterFunc from "./CounterFunc";
 
 const itemRemaining = 5;
 
+// Ini menggunakan Counter Function
 const CounterApp = () => {
   return(
     <main className="Application">

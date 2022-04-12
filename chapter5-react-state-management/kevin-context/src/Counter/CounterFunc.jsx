@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+// Ini Functional Component
 const CounterFunc = ({max, min, step}) => {
   // const [count, setCount] = useState(0);
   const getStateFromLocalStorage = (angka) => {
