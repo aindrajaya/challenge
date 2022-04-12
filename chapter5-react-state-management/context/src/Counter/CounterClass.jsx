@@ -25,11 +25,18 @@ class CounterClass extends React.Component {
 
     //Local Storage
     this.incrementFromLocalStorage = this.incrementFromLocalStorage.bind(this)
+    this.decrementFromLocalStorage = this.decrementFromLocalStorage.bind(this)
   }
 
   increment() {
     this.setState(
       { count: this.state.count + 1 }
+    );
+  }
+
+  decrement() {
+    this.setState(
+      { count: this.state.count - 1 }
     );
   }
 
@@ -49,19 +56,6 @@ class CounterClass extends React.Component {
     });
   }
 
-  decrement() {
-    this.setState({ count: this.state.count - 1 });
-  }
-
-
-  decrementUsingProps() {
-    const { min, step } = this.props //menggunakan destructuring
-    this.setState((c) => { //c itu bisa diubah apapun, dia menggantikan this.state, seperti fungsi map()
-      if (c.count === min) return;
-      return { count: c.count - step }
-    })
-  }
-
   reset() {
     this.setState({ count: 0 });
   }
@@ -74,7 +68,6 @@ class CounterClass extends React.Component {
         if (state.count >= max) return;
         return { count: state.count + step }
       },
-      //Fungsi callback -> componentDidMount
       () => {
         localStorage.setItem("counterStorage", JSON.stringify(this.state));
         console.log("After", localStorage);
