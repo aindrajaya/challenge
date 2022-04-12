@@ -5,16 +5,20 @@ const CounterFunc = ({ max, step, min }) => {
   // const [count, setCount] = useState(0)
 
   const increment = () => {
-    if (count >= max) return alert('item sudah habis');
+    if (count >= max) return alert('item sudah mencapai batas maksimal');
     return setCount(count + step);
   };
 
   //Side effect, adalah proses lain yang di jalankan selain proses utama
   React.useEffect(() => {
     //componentDidMount -> untuk update title, sesuai dengan state count
-  }, []); //dependencies, merupaka sesuatu pengubah
+    document.title = `Clicked ${count} times`;
+  }, [count]); //dependencies, merupaka sesuatu pengubah
 
-  const decrement = () => setCount(count - 1);
+  const decrement = () => {
+    if (count === min) return alert('item sudah mencapai batas minimal');
+    setCount(count - step);
+  };
   const reset = () => setCount(0);
 
   return (
