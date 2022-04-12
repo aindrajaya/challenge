@@ -1,10 +1,17 @@
 import React from "react";
 
+const getStateFromLocalStorage = () => {
+  const storage = localStorage.getItem("counterStorage");
+  console.log(storage)
+  if(storage) return JSON.parse(storage).count
+  return { count: 0};
+}
+
 class CounterClass extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      count: 0
+      count: getStateFromLocalStorage(),
     }
 
     this.increment = this.increment.bind(this);
@@ -23,8 +30,8 @@ class CounterClass extends React.Component {
   }
 
   incrementUsingProps(){
-    const {max, step} = this.props
-    this.setState((c) => {
+    const {max, step} = this.props //menggunakan destructuring
+    this.setState((c) => { //c itu bisa diubah apapun, dia menggantikan this.state, seperti fungsi map()
       if(c.count >= max) return;
       return {count: c.count + step}
     })
@@ -46,6 +53,22 @@ class CounterClass extends React.Component {
 
   reset(){
     this.setState({count: 0});
+  }
+
+  //Function localStorage
+  incrementFromLocalStorage(){
+    this.setState(
+      (state, props) => {
+        const {max, step} = props;
+        if(state.count >= max) return;
+        return {count: state.count + step}
+      },
+      //Fungsi callback -> componentDidMount 
+      () => {
+        localStorage.setItem("counterStorage", JSON.stringify(this.state));
+        console.log("After", localStorage);
+      }
+    );
   }
 
   render(){
