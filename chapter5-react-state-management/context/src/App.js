@@ -7,7 +7,13 @@ import './Theme.css'
 import Form from './Form';
 
 //Declare component context
-export const ThemeContext = "String";
+export const ThemeContext = createContext("light");
+
+// function App() {
+//   return (
+//     <CounterApp />
+//   );
+// }
 
 function App() {
   const [theme, setTheme] = useState("light")
@@ -18,9 +24,10 @@ function App() {
 
   return (
     <ThemeContext.Provider value={{theme, toggleTheme}}>
-      <div className='App' id={"data"}>
-        <h2>Your Name</h2>
-        <CounterApp />
+      <div className='App' id={theme}>
+        <h2 className='sign'>Arif Khairunnas</h2>
+        <Form />
+        {/* <CounterApp /> */}
         <div className='switch'>
           <label>{theme === "light" ? "Light Mode" : "Dark Mode"}</label>
           <ReactSwitch onChange={toggleTheme} checked={theme === "light"}/>
