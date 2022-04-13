@@ -56,10 +56,6 @@ class CounterClass extends React.Component {
     });
   }
 
-  reset() {
-    this.setState({ count: 0 });
-  }
-
   //Function localStorage
   incrementFromLocalStorage() {
     this.setState(
@@ -73,6 +69,24 @@ class CounterClass extends React.Component {
         console.log("After", localStorage);
       }
     );
+  }
+
+  decrementFromLocalStorage() {
+    this.setState(
+      (state, props) => {
+        const { min, step } = props;
+        if (state.count >= min) return;
+        return { count: state.count - step }
+      },
+      () => {
+        localStorage.setItem("counterStorage", JSON.stringify(this.state));
+        console.log("After", localStorage);
+      }
+    );
+  }
+
+  reset() {
+    this.setState({ count: 0 });
   }
 
   render() {
