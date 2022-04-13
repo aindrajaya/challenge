@@ -26,6 +26,7 @@ function App() {
     <ThemeContext.Provider value={{theme, toggleTheme}}>
       <div className='App' id={theme}>
         <h2>Ruben Emanuel Widagdo</h2>
+        {/* <CounterApp /> */}
         <Form />
         <div className='switch'>
           <label>{theme === "light" ? "Light Mode" : "Dark Mode"}</label>
