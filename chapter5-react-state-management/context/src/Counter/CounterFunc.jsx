@@ -1,76 +1,91 @@
-import { useState, useEffect } from "react";
+import React, {useEffect, useState} from "react";
 
-// Ini Functional Component
-const CounterFunc = ({max, min, step}) => {
-  // const [count, setCount] = useState(0);
-  const getStateFromLocalStorage = (angka) => {
-    const storage = localStorage.getItem("counterStorage");
-    // console.log(storage);
-    if (storage) return JSON.parse(storage).count;
-    return localStorage.setItem("counterStorage", JSON.stringify(angka));
+const getStateFromLocalStorage = (defaultValue, key) => {
+  const storage = localStorage.getItem(key)
+  console.log(storage);
+  if(storage) return JSON.parse(storage).count;
+  return defaultValue;
+}
+
+const storeStateInLocalStorage = count => {
+  localStorage.setItem("counterStorage", JSON.stringify({count}))
+  console.log(localStorage);
+}
+
+//Custom hooks untuk mendapatkan data dari localStorage
+const useLocalStorage = (initialState, key) => {
+  ////Model data -> get data from localStorage
+  const getLocalStorage = () => {
+    const storage = localStorage.getItem(key)
+    console.log(storage);
+    if(storage) return JSON.parse(storage).value;
+    return initialState;
   }
-  
-  const [count, setCount] = useState(getStateFromLocalStorage({ count: 0 }));
-  // console.log(count);
 
-  // side effect (efek samping) merupakan Proses lain yang dijalankan selain proses utama
+  //Model data -> get data from DB
+  const getDatafromDB = async () => {
+    try {
+      const res = await fetch('your-api-endpoint')
+      const data = res.json()
+      return data
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  //Svae value that get from local
+  const [value, setValue] = React.useState(getLocalStorage())
+  console.log("before", getLocalStorage());
+
+  //Store in local
   useEffect(() => {
-    document.title = `Your counter: ${count}` //componentDidMount
-  }, [count]) //dependencies, merupakan suatu pengubah. Apabila nilai count berubah maka useEffect akan dijalankan
-  
+    localStorage.setItem(key, JSON.stringify({value}))
+  }, [value], console.log("After", value))
 
-  // !Functional Component 
-  // !Menggunakan useState, belum bisa menyimpan di local storage
-  // const increment = () => setCount(count + 1);
-  // const decrement = () => setCount(count - 1);
-  // const reset = () => setCount(0);
+  return [value, setValue]
+}
 
-  // !Menggunakan useState, bisa menyimpan di localstorage belum ada max, min, dan step
-  // const incrementFromLocalStorage = () => {
-  //   setCount(count + 1);
-  //   localStorage.setItem("counterStorage", JSON.stringify({ count: count + 1 }));
-  // }
+const CounterFunc = ({max, step, min}) => {
+  // const [count, setCount] = useLocalStorage(0, "count") //ini bukan useState
+  // const [count, setCount] = useState(getStateFromLocalStorage(0))
+  const [count, setCount] = useState(0) //
+  console.log("before", count);
 
-  // const decrementFromLocalStorage = () => {
-  //   setCount(count - 1);
-  //   localStorage.setItem("counterStorage", JSON.stringify({ count: count - 1 }));
-  // }
-
-  // const resetFromLocalStorage = () => {
-  //   setCount(0);
-  //   localStorage.setItem("counterStorage", JSON.stringify({ count: 0 }));
-  // }
-
-  // !Menggunakan useState, bisa menyimpan di localstorage ada max, min, dan step
-  const incrementFromLocalStorage = () => {
-    let tambah = count + step;
-    if(count >= max) return alert("item sudah habis");
-    setCount(tambah);
-    localStorage.setItem("counterStorage", JSON.stringify({ count: tambah }));
+  const increment = () =>  {
+    setCount(c => {
+      if(c >= max){
+        alert("item habis")
+        return c
+      } 
+      return c + step
+    })
   }
 
-  const decrementFromLocalStorage = () => {
-    let kurang = count - step;
-    if(count <= min) return alert("item sudah habis");
-    setCount(kurang);
-    localStorage.setItem("counterStorage", JSON.stringify({ count: kurang }));
-  }
+  //Side effect, adalah proses lain yang di jalankan selain proses utama
+  useEffect(() => {
+    document.title = `Your count is ${count}`//componentDidUpdate -> untuk update title, sesuai dengan state count
+    console.log("after", count)
+  },[count]) //dependencies, merupaka sesuatu pengubah
 
-  const resetFromLocalStorage = () => {
-    setCount(0);
-    localStorage.setItem("counterStorage", JSON.stringify({ count: 0 }));
+  // useEffect(() => {
+  //   // storeStateInLocalStorage(count)
+  // }, [count]) 
+
+  const decrement = () =>  {
+    if(count === min) return alert("item is zero")    
+    setCount(count - step)
   }
+  const reset = () => setCount(0)
 
   return(
     <div className="Counter">
       <p className="count">{count}</p>
       <section className="controls">
-        <button onClick={incrementFromLocalStorage}>Increment</button>
-        <button onClick={decrementFromLocalStorage}>Decrement</button>
-        <button onClick={resetFromLocalStorage}>Reset</button>
+        <button onClick={increment}>Increment</button>
+        <button onClick={decrement}>Decrement</button>
+        <button onClick={reset}>Reset</button>
       </section>
     </div>
   )
 }
-
 export default CounterFunc;
