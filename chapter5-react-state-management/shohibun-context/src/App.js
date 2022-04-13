@@ -1,8 +1,39 @@
-import CounterApp from './Counter/index';
+import { createContext, useState } from 'react';
+import CounterApp from './Counter';
+import ReactSwitch from 'react-switch';
+
+//Style
+import './Theme.css'
+// import Form from './Form';
+
+//Declare component context
+export const ThemeContext = createContext("light");
+
+// function App() {
+//   return (
+//     <CounterApp />
+//   );
+// }
 
 function App() {
+  const [theme, setTheme] = useState("light")
+
+  const toggleTheme = () => {
+    setTheme((currentTheme) => (currentTheme === "light" ? "dark" : "light"))
+  }
+
   return (
-    <CounterApp />
+    <ThemeContext.Provider value={{theme, toggleTheme}}>
+      <div className='App' id={theme}>
+        <h2 className='sign'>Shohibun Najam Ilma</h2>
+        {/* <Form /> */}
+        <CounterApp />
+        <div className='switch'>
+          <label>{theme === "light" ? "Light Mode" : "Dark Mode"}</label>
+          <ReactSwitch onChange={toggleTheme} checked={theme === "light"}/>
+        </div>
+      </div>
+    </ThemeContext.Provider>
   );
 }
 
