@@ -32,7 +32,6 @@ const useLocalStorage = (initialState, key) => {
       console.log(error);
     }
   }
-
   //Svae value that get from local
   const [value, setValue] = React.useState(getLocalStorage())
   console.log("before", getLocalStorage());
@@ -66,7 +65,6 @@ const CounterFunc = ({max, step, min}) => {
     document.title = `Your count is ${count}`//componentDidUpdate -> untuk update title, sesuai dengan state count
     console.log("after", count)
   },[count]) //dependencies, merupaka sesuatu pengubah
-
   // useEffect(() => {
   //   // storeStateInLocalStorage(count)
   // }, [count]) 
