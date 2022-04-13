@@ -46,26 +46,6 @@ const useLocalStorage = (initialState, key) => {
 }
 
 const CounterFunc = ({max, step, min}) => {
-<<<<<<< HEAD
-  const [count, setCount] = React.useState(0)
-
-  const increment = () => {
-    if (count >= max) return alert("Sudah maximal");
-    return setCount(count + 1);
-  } 
-
-  const decrement = () => {
-    if (count <= min) return alert("Sudah minimal");
-    return setCount(count - 1);
-  } 
-
-  const reset = () => setCount(0);
-
-  // Side effect, adalah proses lain yang dijalankan selain proses utama
-  React.useEffect(() => {
-    document.title = `Your counter is: ${count}`; // componentDidMount
-  }, [count]) // depedencies, merupakan suatu pengubah 
-=======
   // const [count, setCount] = useLocalStorage(0, "count") //ini bukan useState
   // const [count, setCount] = useState(getStateFromLocalStorage(0))
   const [count, setCount] = useState(0) //
@@ -97,7 +77,6 @@ const CounterFunc = ({max, step, min}) => {
     setCount(count - step)
   }
   const reset = () => setCount(0)
->>>>>>> a01cf9ec6466c535be419f058e03addb38261d33
 
   return(
     <div className="Counter">
