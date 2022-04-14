@@ -52,6 +52,14 @@ body .main {
   color: #ffffff;
 }
 
+#light .count {
+  color: #2f093d;
+}
+
+#dark .count {
+  color: #ffffff;
+}
+
 .username {
   width: 76%;
   font-weight: 700;
