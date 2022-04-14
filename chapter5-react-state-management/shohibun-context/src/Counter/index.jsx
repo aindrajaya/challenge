@@ -1,23 +1,30 @@
 import React from "react";
-import './styles.scss'
+import "./styles.scss";
 
 //Component
 // import CounterClass from "./CounterClass";
 // import CounterFunc from "./CounterFunc";
 // import CounterReducer from "./CounterUseReducer";
-import CounterContextAPI from "./CounterContextAPI";
-import { CounterContextProvider } from "./CounterContextAPI/counterContext";
+// import CounterContextAPI from "./CounterContextAPI";
+import { Provider } from "react-redux";
+// import { CounterContextProvider } from "./CounterContextAPI/counterContext";
+import store from "./CounterRedux/store";
+import CounterRedux from "./CounterRedux";
+
 const itemRemaining = 5;
 
 const CounterApp = () => {
-  return(
-    <CounterContextProvider>
+  return (
+    // <CounterContextProvider>
+    <Provider store={store}>
       <main className="Application">
         <section className="Counters">
-          <CounterContextAPI  max={itemRemaining} min={-5} step={1} />
+          {/* <CounterContextAPI max={itemRemaining} min={-5} step={1} /> */}
+          <CounterRedux max={itemRemaining} min={-5} step={1}/>
         </section>
       </main>
-    </CounterContextProvider>
+    </Provider>
+    // </CounterContextProvider>
 
     // <main className="Application">
     //   <section className="Counters">
@@ -26,7 +33,7 @@ const CounterApp = () => {
     //     {/* <CounterClass max={itemRemaining} min={-5} step={1} /> */}
     //   </section>
     // </main>
-  )
-}
+  );
+};
 
-export default CounterApp
+export default CounterApp;
