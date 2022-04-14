@@ -23,8 +23,9 @@ export const decrement = (dispatch, min, step, count) => {
   }
 }
 
-export const reset = (dispatch) => {
+export const reset = (dispatch, step) => {
   dispatch({
     type: "reset",
+    payload: {}
   })
 }
