@@ -4,10 +4,10 @@ import ReactSwitch from 'react-switch';
 
 //Style
 import './Theme.css'
-import Form from './Form';
+// import Form from './Form';
 
 //Declare component context
-export const ThemeContext = createContext("light");
+export const ThemeContext = createContext(null);
 
 // function App() {
 //   return (
@@ -25,7 +25,7 @@ function App() {
   return (
     <ThemeContext.Provider value={{theme, toggleTheme}}>
       <div className='App' id={theme}>
-        <h2 className='sign'>Kevin Octaviano</h2>
+        <h2 className='sign'>Counter Context API Kevin Octaviano</h2>
         {/* <Form /> */}
         <CounterApp />
         <div className='switch'>
