@@ -12,7 +12,7 @@ export default function CounterContextAPI ({max, min, step}) {
       <p className="count">{count}</p>
       <section className="controls">
         <button onClick={() => increment(dispatch, max, step, count)}>Increment</button>
-        <button onClick={() => decrement(dispatch)}>Decrement</button>
+        <button onClick={() => decrement(dispatch,min,step,count)}>Decrement</button>
         <button onClick={() => reset(dispatch)}>Reset</button>
       </section>
     </div>

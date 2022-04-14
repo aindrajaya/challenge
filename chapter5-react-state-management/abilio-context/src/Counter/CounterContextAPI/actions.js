@@ -12,7 +12,7 @@ export const increment = (dispatch, max, step, count) => {
 }
 
 export const decrement = (dispatch, min, step, count) => {
-  if(count <= min){
+  if(count === min){
     alert("barang udah habis")
     return count;
   } else {
