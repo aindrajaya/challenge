@@ -64,7 +64,7 @@ const CounterFunc = ({max, min, step}) => {
   return(
     <div className="Counter">
       <p className="count">{count}</p>
-      <h4 className="count" align="center">Counter Function</h4>
+      <h4 className="judul" align="center">Counter Function</h4>
       <section className="controls">
         <button onClick={incrementFromLocalStorage}>Increment</button>
         <button onClick={decrementFromLocalStorage}>Decrement</button>

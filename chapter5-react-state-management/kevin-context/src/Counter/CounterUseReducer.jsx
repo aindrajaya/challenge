@@ -30,7 +30,7 @@ export default function CounterUseReducer({ max, min, step }) {
   return (
     <div className="Counter">
             <p className="count">{state.count}</p>
-            <h4 className="count" align="center">Counter Use Reduce</h4>
+            <h4 className="judul" align="center">Counter Use Reduce</h4>
             <section className="controls">
                 {/* 1. Actions - (increment, decrement, reset) */}
                 <button onClick={() => dispatch({type: "increment"})}>Increment</button>

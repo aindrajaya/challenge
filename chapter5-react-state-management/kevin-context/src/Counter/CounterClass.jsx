@@ -103,7 +103,7 @@ class CounterClass extends React.Component {
     return(
       <div className="Counter">
         <p className="count">{this.state.count}</p>
-        <h4 className="count" align="center">Counter Class</h4>
+        <h4 className="judul" align="center">Counter Class</h4>
         <section className="controls">
           <button onClick={this.incrementFromLocalStorage}>Increment</button>
           <button onClick={this.decrementFromLocalStorage}>Decrement</button>
