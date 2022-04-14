@@ -2,7 +2,6 @@ import { data } from 'autoprefixer';
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Link, Navigate, Outlet, Route, Routes } from 'react-router-dom';
 import { PostComponent } from './components/Post';
-// import './App.css'; //Global
 import Landing from './pages/Landing';
 import { Login } from './pages/Login';
 import { Team } from './pages/Team';
@@ -12,24 +11,21 @@ import Testimonial from './pages/Testimonial';
 
 function App() {
   const auth = useAuth()
-  const [users, setUsers] = useState([]);
+  // 1. Buat useState, bentuknya array
 
   const getPostData =  async() => {
     try {
-      const a = await fetch('https://jsonplaceholder.typicode.com/users')
-      const data = await a.json(); //error
-      // console.log(data)
-      setUsers(data) //error
+      //2. Panggil data json dengan fetch ('https://jsonplaceholder.typicode.com/users')
     } catch (error) {
       console.log(error)
     }
   }
 
   useEffect(() => {
-    getPostData();
+    //3. Jalankan getPostData()
   }, [])
   
-  console.log("dari App", users);
+  // console.log(users)
 
   return (
     <BrowserRouter>
@@ -48,7 +44,7 @@ function App() {
             <Team />
             }/>
         </Route>
-        <Route  path='/users' element={<PostComponent users={users}/>}/>
+        {/* //TAMBAHKAN SATU ROUTES KE HALAMAN POST COMPONENT */}
       </Routes> 
     </BrowserRouter>
   );
@@ -78,7 +74,7 @@ const Header = () => {
               Team
           </Link>
           <Link className="mr-5 hover:text-gray-900" to="/testimonial">Testimonial</Link>
-          <Link className="mr-5 hover:text-gray-900" to="/users">Get Users</Link>
+          {/* <Link className="mr-5 hover:text-gray-900" to="/users">Get Users</Link> */}
         </nav>
       </div>
     </header>

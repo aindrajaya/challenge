@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ListsTodo({data, del, getIdToUpdate}) {
+export default function ListsTodo({data, del}) {
   return (
     <div>
       <ul>
@@ -8,7 +8,6 @@ export default function ListsTodo({data, del, getIdToUpdate}) {
           <div key={idx}>
             {idx+1}. {list.todo}
             <span onClick={() => del(list.id)}> X</span>
-            <span onClick={() => getIdToUpdate(list)}> Edit</span>
           </div>
         ))}
       </ul>

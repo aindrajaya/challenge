@@ -1,125 +1,20 @@
 {
-  "todos2": [
-    {
-      "id": "53f85a68-f274-4b13-a98a-9b0a04abb0aa",
-      "todo": "data baru",
-      "completed": true
-    }
-  ],
   "todos": [
     {
+      "id": 2,
+      "todo": "Id kedua"
+    },
+    {
       "id": "53f85a68-f274-4b13-a98a-9b0a04abb0aa",
-      "todo": "data baru lagi edit baru",
-      "completed": true
+      "todo": "Data baru"
+    },
+    {
+      "id": "8f313fe2-548f-4238-b41b-f0de5ceddba9",
+      "todo": "data keenam"
     },
     {
       "id": "98d87c83-6919-44f1-8523-7a82c6ccf798",
-      "todo": "data 2",
-      "completed": false
-    },
-    {
-      "id": "bec2f1d7-ef32-4994-87c3-b212df8a82ef",
-      "todo": "data baru",
-      "completed": true
-    },
-    {
-      "id": "f0625cd1-ff91-4d85-84d4-256bd140213f",
-      "todo": "Ketik todo",
-      "completed": true
-    },
-    {
-      "id": "fa9410a8-d133-482d-9127-43a0aa6c3754",
-      "todo": "nambah lagi",
-      "completed": false
-    },
-    {
-      "id": "7101a354-08b2-4e04-afc0-d7e6c8825f22",
-      "todo": "Edited update json",
-      "completed": false
-    },
-    {
-      "id": "9e22d1d3-b0be-4402-a122-9d2100ee8aef",
-      "todo": "Add todo baru diedit",
-      "completed": true
-    },
-    {
-      "id": "e707b295-e07b-421e-a434-800e87d5504a",
-      "todo": "tambah baru",
-      "completed": false
-    },
-    {
-      "id": "8ac97d1b-bc1d-4c3e-aa4c-1e0b3f055f6a",
-      "todo": "data baru",
-      "completed": false
-    },
-    {
-      "id": "a4132328-16a7-498c-84bc-051253fe7b9e",
-      "todo": "tambah data",
-      "completed": false
-    },
-    {
-      "id": "49160489-76ae-44c6-8003-7212e3168516",
-      "todo": "todos 2",
-      "completed": false
-    },
-    {
-      "id": "85279202-8f80-433a-ad80-5f216b291611",
-      "todo": "todo lagi",
-      "completed": false
-    },
-    {
-      "id": "c1e706ca-8bfd-4499-9380-7f5ea5c31a4d",
-      "todo": "data baru"
-    }
-  ],
-  "cars": [
-    {
-      "id": 2,
-      "name": "APV",
-      "category": "medium",
-      "price": 450000,
-      "status": false,
-      "start_rent_at": null,
-      "finish_rent_at": null,
-      "image": "https://firebasestorage.googleapis.com/v0/b/rent-car-507f6.appspot.com/o/1647146984179-APV.png?alt=media",
-      "createdAt": "2022-03-09T15:36:11.971Z",
-      "updatedAt": "2022-03-13T04:49:44.187Z"
-    },
-    {
-      "id": 3,
-      "name": "Xenia",
-      "category": "small",
-      "price": 250000,
-      "status": false,
-      "start_rent_at": null,
-      "finish_rent_at": null,
-      "image": "https://firebasestorage.googleapis.com/v0/b/rent-car-507f6.appspot.com/o/1647147017740-xenia.png?alt=media",
-      "createdAt": "2022-03-09T15:37:31.822Z",
-      "updatedAt": "2022-03-13T04:50:17.751Z"
-    },
-    {
-      "id": 4,
-      "name": "Avanza",
-      "category": "small",
-      "price": 300000,
-      "status": true,
-      "start_rent_at": "2022-03-08T00:00:00.000Z",
-      "finish_rent_at": "2022-03-10T00:00:00.000Z",
-      "image": "https://firebasestorage.googleapis.com/v0/b/rent-car-507f6.appspot.com/o/1647147033514-avanza.png?alt=media",
-      "createdAt": "2022-03-09T15:42:06.573Z",
-      "updatedAt": "2022-03-13T04:50:33.516Z"
-    },
-    {
-      "id": 5,
-      "name": "Alphard",
-      "category": "large",
-      "price": 1000000,
-      "status": true,
-      "start_rent_at": "2022-03-09T00:00:00.000Z",
-      "finish_rent_at": "2022-03-15T00:00:00.000Z",
-      "image": "https://firebasestorage.googleapis.com/v0/b/rent-car-507f6.appspot.com/o/1647147050024-alphard.png?alt=media",
-      "createdAt": "2022-03-09T15:44:25.895Z",
-      "updatedAt": "2022-03-13T04:50:50.027Z"
+      "todo": "data 2"
     }
   ]
 }
