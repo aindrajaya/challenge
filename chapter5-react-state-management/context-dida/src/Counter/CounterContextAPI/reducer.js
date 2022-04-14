@@ -1,5 +1,5 @@
 const reducerContext = (state, action) => {
-  const {step} = action.payload
+  const {step, min} = action.payload
   switch (action.type) {
     case "increment":
       return {
@@ -12,7 +12,7 @@ const reducerContext = (state, action) => {
       }
     case "reset":
       return {
-        count: 0
+        count: min
       }
     default:
       return state;
