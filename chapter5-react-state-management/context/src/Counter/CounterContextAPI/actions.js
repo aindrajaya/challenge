@@ -11,14 +11,21 @@ export const increment = (dispatch, max, step, count) => {
     }
 }
 
-export const decrement = (dispatch) => {
-    dispatch({
-        type: "decrement",
-    })
+export const decrement = (dispatch, min, step, count) => {
+    if (count <= min) {
+        alert("barang sudah habis")
+        return count;
+    } else {
+        dispatch({
+            type: "decrement",
+            payload: { step }
+        })
+    }
 }
 
-export const reset = (dispatch) => {
+export const reset = (dispatch, min) => {
     dispatch({
         type: "reset",
+        payload: { min }
     })
 }
