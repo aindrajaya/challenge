@@ -5,8 +5,8 @@ export const increment = (dispatch, max, step, count) => {
       return count;
     } else {
       dispatch({
-        type: "increment",
-        payload: {step}
+        type: "increment", //perintah
+        payload: {step} //menghubungkan UI dengan data yang akan diolah
       })
     }
   }
