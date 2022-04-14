@@ -1,4 +1,49 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
+const getStateFromLocalStorage = (defaultValue, key) => {
+  const storage = localStorage.getItem(key)
+  console.log(storage);
+  if (storage) return JSON.parse(storage).count;
+  return defaultValue;
+}
+
+const storeStateInLocalStorage = count => {
+  localStorage.setItem("counterStorage", JSON.stringify({ count }))
+  console.log(localStorage);
+}
+
+//Custom hooks untuk mendapatkan data dari localStorage
+const useLocalStorage = (initialState, key) => {
+  ////Model data -> get data from localStorage
+  const getLocalStorage = () => {
+    const storage = localStorage.getItem(key)
+    console.log(storage);
+    if (storage) return JSON.parse(storage).value;
+    return initialState;
+  }
+
+  //Model data -> get data from DB
+  const getDatafromDB = async () => {
+    try {
+      const res = await fetch('your-api-endpoint')
+      const data = res.json()
+      return data
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  //Svae value that get from local
+  const [value, setValue] = React.useState(getLocalStorage())
+  console.log("before", getLocalStorage());
+
+  //Store in local
+  useEffect(() => {
+    localStorage.setItem(key, JSON.stringify({ value }))
+  }, [value], console.log("After", value))
+
+  return [value, setValue]
+}
 
 const getStateFromLocalStorage = () => {
   const storage = localStorage.getItem("counterState")
