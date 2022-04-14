@@ -3,7 +3,7 @@ import './styles.scss'
 
 //Component
 // import CounterClass from "./CounterClass";
-import CounterFunc from "./CounterFunc";
+//import CounterFunc from "./CounterFunc";
 import { CounterContextProvider } from "./CounterContextAPI/counterContext";
 import CounterContextAPI from "./CounterContextAPI";
 
