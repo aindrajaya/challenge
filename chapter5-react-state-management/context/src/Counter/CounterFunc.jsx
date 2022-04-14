@@ -1,5 +1,7 @@
 import React from "react";
 
+
+
 const CounterFunc = ({max, step, min}) => {
   const [count, setCount] = React.useState(0)
   // const [count, setCount] = useState(0)
@@ -9,13 +11,12 @@ const CounterFunc = ({max, step, min}) => {
     return setCount(count + step)
   }
 
-  //Side effect, adalah proses lain yang di jalankan selain proses utama
-
   const decrement = () => {
     if(count === min) return alert("Sudah mencapai batas");
     return setCount(count - step)
   }
 
+  //Side effect, adalah proses lain yang di jalankan selain proses utama
   React.useEffect(() => {
     document.title = `Angka Sekarang : ${count}`//componentDidMount -> untuk update title, sesuai dengan state count
   }, [count]) //dependencies, merupaka sesuatu pengubah
