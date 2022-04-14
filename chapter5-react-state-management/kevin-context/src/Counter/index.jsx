@@ -6,11 +6,26 @@ import './styles.scss'
 // import CounterFunc from "./CounterFunc";
 // import CounterContextAPI from "./CounterContextAPI";
 // import { CounterContextProvider } from "./CounterContextAPI/counterContext";
-import CounterUseReducer from "./CounterUseReducer";
+import CounterRedux from "./CounterRedux";
+import { Provider } from "react-redux";
+import store from "./CounterRedux/store"
 
-// const itemRemaining = 5;
+const itemRemaining = 5;
+// Ini menggunakan Counter class dan function
+// const CounterApp = () => {
+//   return(
+//       <main className="Application">
+//         <section className="Counters">
+//           {/* <CounterClass max={itemRemaining} min={0} step={1} /> */}
+//           {/* <CounterFunc max={itemRemaining} min={0} step={1} /> */}
+//           <CounterContextAPI max={itemRemaining} min={0} step={1} />
+//         </section>
+//       </main>
+//   )
+// }
 
-// Ini menggunakan Counter Function
+
+// Ini menggunakan Counter Context API
 // const CounterApp = () => {
 //   return(
 //     <CounterContextProvider>
@@ -26,14 +41,16 @@ import CounterUseReducer from "./CounterUseReducer";
 // }
 // }
 
-// Ini CounterUseReducer
+// Ini CounterRedux
 const CounterApp = () => {
   return(
+    <Provider store={store}>
       <main className="Application">
         <section className="Counters">
-          <CounterUseReducer />
+          <CounterRedux max={itemRemaining} min={0} step={1} />
         </section>
       </main>
+    </Provider>
   )
 }
 export default CounterApp
