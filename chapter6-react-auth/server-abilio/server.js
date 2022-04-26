@@ -20,7 +20,9 @@ const db = require("./app/models");
 const Role = db.role;
 
 db.mongoose
-  .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
+  // .connect(`mongodb://${dbConfig.HOST}
+  .connect(`mongodb+srv://abiliokrismanuel:LPfqj35v4z9O92nR@cluster0.jnf8f.mongodb.net/server-minchallenge06?retryWrites=true&w=majority${dbConfig.HOST}
+  :${dbConfig.PORT}/${dbConfig.DB}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
