@@ -3,19 +3,18 @@ import './styles.scss'
 
 //Component
 // import CounterClass from "./CounterClass";
-//import CounterFunc from "./CounterFunc";
-//import { CounterContextProvider } from "./CounterContextAPI/counterContext";
-// import CounterContextAPI from "./CounterContextAPI";
-
+import CounterFunc from "./CounterFunc";
+import { CounterContextProvider } from "./CounterContextAPI/counterContext";
+import CounterContextAPI from "./CounterContextAPI";
 import { Provider } from "react-redux";
-import store from "./CounterRedux/store"
+import store from "./CounterRedux/store";
 import CounterRedux from "./CounterRedux";
 
 const itemRemaining = 5;
 
 const CounterApp = () => {
   return(
-    //<CounterContextProvider>
+    // <CounterContextProvider>
     <Provider store={store}>
       <main className="Application">
         <section className="Counters">
@@ -26,7 +25,8 @@ const CounterApp = () => {
         </section>
       </main>
     </Provider>
-   // </CounterContextProvider>
+      
+    // </CounterContextProvider>
   )
 }
 
