@@ -32,6 +32,7 @@ export default function (state = initialState, action) {
                 isLoggedIn: true,
                 user: payload.user,
             };
+        //Jika proses action login fail, brarti user hull, dan isLoggedIn false
         case LOGIN_FAIL:
             return {
                 ...state,
