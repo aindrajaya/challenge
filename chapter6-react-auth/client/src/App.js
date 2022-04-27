@@ -5,8 +5,10 @@ import { Router, Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
+//#3. Menuju ke tempat komponent tersebut
 import Login from "./components/Login";
 import Register from "./components/Register";
+
 import Home from "./components/Home";
 import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
@@ -109,6 +111,7 @@ const App = () => {
               </li>
             </div>
           ) : (
+            //# 1. First Attenttion - false result from currentUser null or not
             <div className="navbar-nav ml-auto">
               <li className="nav-item">
                 <Link to={"/login"} className="nav-link">
@@ -129,8 +132,10 @@ const App = () => {
           <Switch>
             <Route exact path={["/", "/home"]} component={Home} />
             <Route exact path="/login" component={Login} />
+            {/* #2. 2nd Attention */}
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={Profile} />
+
             <Route path="/user" component={BoardUser} />
             <Route path="/mod" component={BoardModerator} />
             <Route path="/admin" component={BoardAdmin} />

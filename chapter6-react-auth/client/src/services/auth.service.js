@@ -11,6 +11,7 @@ const register = (username, email, password) => {
 };
 
 const login = (username, password) => {
+  //Bakal return suatu object
   return axios
     .post(API_URL + "signin", {
       username,
@@ -20,7 +21,6 @@ const login = (username, password) => {
       if (response.data.accessToken) {
         localStorage.setItem("user", JSON.stringify(response.data));
       }
-
       return response.data;
     });
 };
