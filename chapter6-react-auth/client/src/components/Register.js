@@ -6,6 +6,7 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 
+//Proses 7. Menuju ke folder actions dan file auth.js
 import { register } from "../actions/auth";
 
 const required = (value) => {
@@ -58,7 +59,7 @@ const Register = () => {
   const [successful, setSuccessful] = useState(false);
 
   const { message } = useSelector(state => state.message);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); //Dia akan memantik action untuk mengakses global store dan atau api endpoint
 
   const onChangeUsername = (e) => {
     const username = e.target.value;
@@ -75,6 +76,7 @@ const Register = () => {
     setPassword(password);
   };
 
+  //Task 4. Menemukan fungsi yang memantik proses autentikasi (jika benar langsung register, kalau salah ada pesan error),
   const handleRegister = (e) => {
     e.preventDefault();
 
@@ -83,11 +85,14 @@ const Register = () => {
     form.current.validateAll();
 
     if (checkBtn.current.context._errors.length === 0) {
+      //Task 5. Memantik action register, untuk melakukan proses autentikasi, lalu kita cari action register()
       dispatch(register(username, email, password))
         .then(() => {
+          //Proses 6. Jika berhasil dia return true
           setSuccessful(true);
         })
         .catch(() => {
+          //Proses 7. Jika gagal dia return false
           setSuccessful(false);
         });
     }
@@ -102,6 +107,7 @@ const Register = () => {
           className="profile-img-card"
         />
 
+        {/* Task 3. Menemukan fungsi yang memantik username, email dan password di proses, fokus handleRegister() */}
         <Form onSubmit={handleRegister} ref={form}>
           {!successful && (
             <div>
@@ -141,12 +147,14 @@ const Register = () => {
                 />
               </div>
 
+              {/* Task 2. Tombol Sign Up */}
               <div className="form-group">
                 <button className="btn btn-primary btn-block">Sign Up</button>
               </div>
             </div>
           )}
 
+          {/* Proses 10. Ketika variable message true/ ada/available, maka dia otomatis mengeluarkan komponen message */}
           {message && (
             <div className="form-group">
               <div className={ successful ? "alert alert-success" : "alert alert-danger" } role="alert">
