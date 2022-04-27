@@ -26,6 +26,7 @@ export default function (state = initialState, action) {
         ...state,
         isLoggedIn: false,
       };
+      // if proses action registration gagal, maka user tidak akan login/null dan isLoggedIn false
     case LOGIN_SUCCESS:
       return {
         ...state,

@@ -21,6 +21,7 @@ const Role = db.role;
 
 db.mongoose
   // .connect(`mongodb://${dbConfig.HOST}
+  // connect ke database mongoDB
   .connect(`mongodb+srv://abiliokrismanuel:LPfqj35v4z9O92nR@cluster0.jnf8f.mongodb.net/server-minchallenge06?retryWrites=true&w=majority${dbConfig.HOST}
   :${dbConfig.PORT}/${dbConfig.DB}`, {
     useNewUrlParser: true,

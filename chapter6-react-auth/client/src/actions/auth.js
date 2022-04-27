@@ -7,12 +7,14 @@ import {
   SET_MESSAGE,
 } from "./types";
 
-//Proses 9. AuthService berada di folder services
+//Proses 9. AuthService berada di folder services.
 import AuthService from "../services/auth.service";
 // import Axios from "axios";
 
 export const register = (username, email, password) => (dispatch) => {
+  // proses action untuk register ke1 , connect ke API
   return AuthService.register(username, email, password).then(
+    // proses action untuk register ke2 , menunggu konfirmasi dari API dari authservice
     (response) => {
       dispatch({
         type: REGISTER_SUCCESS,
