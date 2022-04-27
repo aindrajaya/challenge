@@ -1,13 +1,23 @@
-import React, { useState, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import Form from "react-validation/build/form";
-import Input from "react-validation/build/input";
-import CheckButton from "react-validation/build/button";
-import { isEmail } from "validator";
+import Form from 'react-validation/build/form';
+import Input from 'react-validation/build/input';
+import CheckButton from 'react-validation/build/button';
+import { isEmail } from 'validator';
 
-import { register } from "../actions/auth";
+import { register } from '../actions/auth';
 
+/**
+ * Dibawah ini merupakan function untuk handle error pada
+ * form input, diantaranya :
+ * 1. required : harus diisi
+ * 2. validEmail : harus menggunakan email yang valid
+ * 3. vusername : harus mengisikan username yang valid dengan keterangan
+ *    panjang karakter minimal 3 dan boleh lebih dari 20 karakter
+ * 4. vpassword : harus mengisikan password yang valid dengan keterangan
+ *    panjang karakter minimal 6 dan boleh lebih dari 40 karakter.
+ */
 const required = (value) => {
   if (!value) {
     return (
@@ -52,12 +62,12 @@ const Register = () => {
   const form = useRef();
   const checkBtn = useRef();
 
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [successful, setSuccessful] = useState(false);
 
-  const { message } = useSelector(state => state.message);
+  const { message } = useSelector((state) => state.message);
   const dispatch = useDispatch();
 
   const onChangeUsername = (e) => {
@@ -75,6 +85,14 @@ const Register = () => {
     setPassword(password);
   };
 
+  /**
+   *  4. Ini merupakan function untuk menghandle apabila user menekan tombol submit register.
+   *     secara default successful akan bernilai false selama masih ada error dalam validasi formnya
+   *     Namun, apabila sudah tidak ada error, akan di arahkan ke actions auth dengan function register
+   *     parameter yang dikirimkan adalah username, email, dan password yang telah diisikan user.
+   *     Setelah dikirimkan successful akan bernilai true karena sudah berhasil dan tidak ada error
+   *     di bagian formnya.
+   */
   const handleRegister = (e) => {
     e.preventDefault();
 
@@ -102,6 +120,11 @@ const Register = () => {
           className="profile-img-card"
         />
 
+        {/* 3. Setelah user menekan tombol register akan diarahkan ke halaman register.
+              User perlu mengisikan form dibawah ini dengan validations yang sudah di
+              tentukan prosesnya diatas. Apabila user menekan tombol submit maka akan 
+              dijalankan fungsi handleRegister.
+        */}
         <Form onSubmit={handleRegister} ref={form}>
           {!successful && (
             <div>
@@ -147,14 +170,20 @@ const Register = () => {
             </div>
           )}
 
+          {/* Pesan error yang dikirim dari backend akan ditampilkan pada komponen ini */}
           {message && (
             <div className="form-group">
-              <div className={ successful ? "alert alert-success" : "alert alert-danger" } role="alert">
+              <div
+                className={
+                  successful ? 'alert alert-success' : 'alert alert-danger'
+                }
+                role="alert"
+              >
                 {message}
               </div>
             </div>
           )}
-          <CheckButton style={{ display: "none" }} ref={checkBtn} />
+          <CheckButton style={{ display: 'none' }} ref={checkBtn} />
         </Form>
       </div>
     </div>

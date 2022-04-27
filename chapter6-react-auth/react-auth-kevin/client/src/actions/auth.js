@@ -5,10 +5,17 @@ import {
   LOGIN_FAIL,
   LOGOUT,
   SET_MESSAGE,
-} from "./types";
+} from './types';
 
-import AuthService from "../services/auth.service";
+import AuthService from '../services/auth.service';
 
+/**
+ * 5. Action ini menerima argumen yang dikirimkan dari component Register seperti username, email, dan password
+ *    setelah menerima argumen, fungsi ini akan mereturn function yang ada pada auth.service. Apabila berhasil
+ *    maka akan mengembalikan response yang di dispatch dengan type REGISTER_SUCCESS dan SET_MESSAGE juga mengembalikan
+ *    nilai promise resolve.
+ *    Payload SET_MESSAGE berisikan pesan sukses yang akan di tampilkan pada component Register.
+ */
 export const register = (username, email, password) => (dispatch) => {
   return AuthService.register(username, email, password).then(
     (response) => {
@@ -23,6 +30,11 @@ export const register = (username, email, password) => (dispatch) => {
 
       return Promise.resolve();
     },
+    /**
+     * Apabila register gagal, maka akan diolah response errornya dan disimpan ke dalam variabel message. Variabel ini
+     * nantinya akan dimasukkan ke dalam payload SET_MESSAGE lalu ditampilkan pesan errornya ke component Register.
+     * Mengembalikan nilai reject pada promisenya.
+     */
     (error) => {
       const message =
         (error.response &&

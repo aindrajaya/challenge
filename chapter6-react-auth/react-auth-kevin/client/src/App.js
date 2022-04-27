@@ -6,6 +6,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 import Login from './components/Login';
+/**
+ * 2. Komponen register yang di import dari folder components
+ * */
 import Register from './components/Register';
 import Home from './components/Home';
 import Profile from './components/Profile';
@@ -116,6 +119,7 @@ const App = () => {
                 </Link>
               </li>
 
+              {/* 1. Tombol untuk menuju ke halaman /register */}
               <li className="nav-item">
                 <Link to={'/register'} className="nav-link">
                   Sign Up
