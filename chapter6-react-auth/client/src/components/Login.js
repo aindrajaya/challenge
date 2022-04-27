@@ -6,6 +6,7 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 
+//Proses 7. Menuju ke folder actions dan file auth.js
 import { login } from "../actions/auth";
 
 const required = (value) => {
@@ -18,6 +19,14 @@ const required = (value) => {
   }
 };
 
+//Task 1. Mencari kode yang menghasilkan return error, ex. "user not Found!"
+/**
+ * What? Return Error,    
+ * Why? Error,
+ * When? setelah di klik tombol login,
+ * How? ketika memasukan username dan password, lalu muncul error
+ */
+
 const Login = (props) => {
   const form = useRef();
   const checkBtn = useRef();
@@ -26,10 +35,11 @@ const Login = (props) => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
+  //Proses 10. Jika action login fail maka komponen ini akan membaca variable isLoggedIn dan juga variable message dari Global Store
   const { isLoggedIn } = useSelector(state => state.auth);
   const { message } = useSelector(state => state.message);
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); //Dia akan memantik action untuk mengakses global store dan atau api endpoint
 
   const onChangeUsername = (e) => {
     const username = e.target.value;
@@ -41,6 +51,7 @@ const Login = (props) => {
     setPassword(password);
   };
 
+  //Task 4. Menemukan fungsi yang memantik proses autentikasi (jika benar langsung login, kalau salah ada pesas error), 
   const handleLogin = (e) => {
     e.preventDefault();
 
@@ -49,11 +60,14 @@ const Login = (props) => {
     form.current.validateAll();
 
     if (checkBtn.current.context._errors.length === 0) {
+      //Task 5. Memantik action login, untuk melakukan proses autentikasi, lalu kita cari action login()
       dispatch(login(username, password))
         .then(() => {
+          //Proses 6. Jika berhasil akan masuk ke halaman /profile
           props.history.push("/profile");
           window.location.reload();
         })
+        //Proses 7. Jika gagal dia return false
         .catch(() => {
           setLoading(false);
         });
@@ -66,6 +80,9 @@ const Login = (props) => {
     return <Redirect to="/profile" />;
   }
 
+  //Sebagai contoh
+  const message2 = "Ini ujicoba notifikasi"
+
   return (
     <div className="col-md-12">
       <div className="card card-container">
@@ -75,6 +92,7 @@ const Login = (props) => {
           className="profile-img-card"
         />
 
+        {/* Task 3. Menemukan fungsi yang memantik username dan password di proses, fokus handleLogin() */}
         <Form onSubmit={handleLogin} ref={form}>
           <div className="form-group">
             <label htmlFor="username">Username</label>
@@ -100,6 +118,7 @@ const Login = (props) => {
             />
           </div>
 
+          {/* Task 2. Tombol login Ketemum (what, why, when, how) */}
           <div className="form-group">
             <button className="btn btn-primary btn-block" disabled={loading}>
               {loading && (
@@ -109,6 +128,7 @@ const Login = (props) => {
             </button>
           </div>
 
+          {/* Proses 11. Ketika variable message true/ ada/available, maka dia otomatis mengeluarkan komponen message */}
           {message && (
             <div className="form-group">
               <div className="alert alert-danger" role="alert">
