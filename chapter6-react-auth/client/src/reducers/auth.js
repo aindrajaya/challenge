@@ -15,6 +15,7 @@ const initialState = user
 export default function (state = initialState, action) {
     const { type, payload } = action;
 
+    // switch kasus register
     switch (type) {
         case REGISTER_SUCCESS:
             return {
@@ -32,7 +33,7 @@ export default function (state = initialState, action) {
                 isLoggedIn: true,
                 user: payload.user,
             };
-        //Jika proses action login fail, brarti user hull, dan isLoggedIn false
+        //Jika proses action login fail, brarti user null, dan isLoggedIn false
         case LOGIN_FAIL:
             return {
                 ...state,

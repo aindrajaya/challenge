@@ -12,7 +12,9 @@ import AuthService from "../services/auth.service";
 // import Axios from "axios";
 
 export const register = (username, email, password) => (dispatch) => {
+    // proses action register, mengirimkan uname, email dan pw dan kemudian menunggu konfirmasi dari AuthService
     return AuthService.register(username, email, password).then(
+        // onfulfilled = terpenuhi
         (response) => {
             dispatch({
                 type: REGISTER_SUCCESS,
@@ -25,14 +27,10 @@ export const register = (username, email, password) => (dispatch) => {
 
             return Promise.resolve();
         },
+        // onrejected = ditolak
         (error) => {
             const message =
-                (error.response &&
-                    error.response.data &&
-                    error.response.data.message) ||
-                error.message ||
-                error.toString();
-
+                (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
             dispatch({
                 type: REGISTER_FAIL,
             });
