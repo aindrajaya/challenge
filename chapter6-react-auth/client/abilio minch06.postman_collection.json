@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"superadmin\",\r\n    \"roles\": [\"admin\"]\r\n    \r\n}",
+					"raw": "{\r\n    \"username\": \"abilio\",\r\n    \"email\": \"abilio@gmail.com\",\r\n    \"password\": \"abilio\",\r\n    \"roles\": [\"user\"]\r\n    \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -41,13 +41,19 @@
 				"method": "POST",
 				"header": [],
 				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "abilio",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "abilio",
+							"type": "text"
 						}
-					}
+					]
 				},
 				"url": {
 					"raw": "http://localhost:8080/api/auth/signin",
@@ -69,7 +75,26 @@
 			"name": "Get Admin Content",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNmEzYmY5YjA3MGFmN2RiMDRlMzg4ZiIsImlhdCI6MTY1MTEyOTg0MSwiZXhwIjoxNjUxMjE2MjQxfQ.6NXN1GN3lX_-pppzECJTk_y0yXhvrBi-GCGZaK15qmU",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/test/admin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"test",
+						"admin"
+					]
+				}
 			},
 			"response": []
 		},
@@ -77,7 +102,33 @@
 			"name": "Get Moderator content",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNmEzZDU3YjA3MGFmN2RiMDRlMzg5NSIsImlhdCI6MTY1MTEzMDIwMCwiZXhwIjoxNjUxMjE2NjAwfQ.MCbn_m1JXsXgJ2jqPdv0oy0LpiTXjdfYpjhEYjEFQVc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/test/mod",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"test",
+						"mod"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
 			},
 			"response": []
 		},
@@ -85,7 +136,26 @@
 			"name": "Get User Content",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNmEzZDkyYjA3MGFmN2RiMDRlMzg5YiIsImlhdCI6MTY1MTEzMDQyMSwiZXhwIjoxNjUxMjE2ODIxfQ.GvvrS-G7Zp6czR3UHS_M5jy595LD7jawefUCD4XAv8E",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/test/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"test",
+						"user"
+					]
+				}
 			},
 			"response": []
 		}
