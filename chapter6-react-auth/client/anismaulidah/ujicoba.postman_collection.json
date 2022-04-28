@@ -132,9 +132,15 @@
 			"name": "Get  Moderator Content",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNmExMGM4MDFlNDVhNDI5YzYyZDRjNiIsImlhdCI6MTY1MTExOTEwOSwiZXhwIjoxNjUxMjA1NTA5fQ.VmZp7Ece-whFT8KxMQZHMZcD7NrYiorUWjMu-VWWP7Q",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "http://localhost:8080/api/test/mod?x-access-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNmExMGM4MDFlNDVhNDI5YzYyZDRjNiIsImlhdCI6MTY1MTExODgyOSwiZXhwIjoxNjUxMjA1MjI5fQ.cxl4ZabJsTChei54kEPGI9La_-Gq5N0p9FZKpuvvWsg",
+					"raw": "http://localhost:8080/api/test/mod",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -144,12 +150,6 @@
 						"api",
 						"test",
 						"mod"
-					],
-					"query": [
-						{
-							"key": "x-access-token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNmExMGM4MDFlNDVhNDI5YzYyZDRjNiIsImlhdCI6MTY1MTExODgyOSwiZXhwIjoxNjUxMjA1MjI5fQ.cxl4ZabJsTChei54kEPGI9La_-Gq5N0p9FZKpuvvWsg"
-						}
 					]
 				}
 			},
