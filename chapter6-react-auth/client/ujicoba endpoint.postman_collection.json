@@ -11,8 +11,19 @@
 				"method": "POST",
 				"header": [],
 				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"superadmin\"\r\n}",
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "moderator",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "supermoderator",
+							"type": "text"
+						}
+					],
 					"options": {
 						"raw": {
 							"language": "json"
@@ -30,6 +41,36 @@
 						"api",
 						"auth",
 						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"moderator\",\r\n    \"email\":\"moderator@gmail.com\",\r\n    \"password\":\"supermoderator\",\r\n    \"roles\": [\"moderator\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"signup"
 					]
 				}
 			},
@@ -57,7 +98,7 @@
 					"urlencoded": []
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/test/admin",
+					"raw": "http://localhost:8080/api/test/user",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -66,37 +107,7 @@
 					"path": [
 						"api",
 						"test",
-						"admin"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "User Register",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"email\":\"admin@gmail.com\",\r\n    \"password\":\"superadmin\",\r\n    \"roles\": [\"admin\"]\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/api/auth/signup",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"auth",
-						"signup"
+						"user"
 					]
 				}
 			},
@@ -124,6 +135,33 @@
 						"api",
 						"test",
 						"admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Moderator Content",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNmEwZTBjOGNkM2NkNDk1MDI4ZTIwNCIsImlhdCI6MTY1MTExNzYwNiwiZXhwIjoxNjUxMjA0MDA2fQ.uq47LbjZBvLk2zrZlO_QmiH6qT-3zeAOxvdTUXbQbKM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/test/mod",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"test",
+						"mod"
 					]
 				}
 			},
