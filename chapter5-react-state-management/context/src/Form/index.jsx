@@ -7,7 +7,7 @@ export default function Form (){
       <form className="form1">
         <input className="username" type="text" placeholder="Username"/>
         <input className="password" type="password" placeholder="Password"/>
-        <a className="submit" align="center">
+        <a href="#" className="submit" align="center">
           Sign In
         </a>
         <p className="forgot" align="center">
