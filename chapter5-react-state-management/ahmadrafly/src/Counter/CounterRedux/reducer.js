@@ -1,5 +1,5 @@
 const initialState = {
-  count: 0,
+  count: 3,
 };
 const reducerRedux = (state = initialState, action) => {
   switch (action.type) {

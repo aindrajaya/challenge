@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 export default function CounterRedux({ max, min, step }) {
   const dispatch = useDispatch();
   const count = useSelector((state) => state.count);
+  console.log(count);
 
   return (
     <div className="Counter">
@@ -18,6 +19,9 @@ export default function CounterRedux({ max, min, step }) {
           Decrement
         </button>
         <button onClick={() => reset(dispatch, min)}>Reset</button>
+        <button onClick={() => decrement(dispatch, min, step, count)}>
+          Decrementssssssssssssss
+        </button>
       </section>
     </div>
   );
