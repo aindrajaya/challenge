@@ -1,38 +1,16 @@
 import './App.css';
-import { useCallback } from 'react';
-import { useDropzone } from 'react-dropzone';
+//call useCallback
+//call useDropzone
 
 function App() {
-  const onDrop = useCallback(acceptedFiles => {
-    console.log(acceptedFiles);
-  }, []);
+  //declare var onDrop that called useCallback
 
-  const {
-    getRootProps,
-    getInputProps,
-    isDragActive,
-    isDragAccept,
-    isDragReject,
-  } = useDropzone({
-    onDrop,
-    accept: 'image/png',
-  });
+  //declare variable that call useDropzone, should be accept image
 
   return (
     <div className="App">
-      <div
-        {...getRootProps({
-          className: `dropzone 
-          ${isDragAccept && 'dropzoneAccept'} 
-          ${isDragReject && 'dropzoneReject'}`,
-        })}
-      >
-        <input {...getInputProps()} />
-        {isDragActive ? (
-          <p>Drop the files here ...</p>
-        ) : (
-          <p>Drag 'n' drop some files here, or click to select files</p>
-        )}
+      <div className="dropzone">
+        {/* Add input */}
       </div>
     </div>
   );
