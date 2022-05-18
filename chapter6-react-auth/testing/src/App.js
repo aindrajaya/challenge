@@ -24,25 +24,25 @@ const Error = styled.p`
   color: red;
 `;
 
-export const validateInput = (str = "") => str.includes("@");
+// export const validateInput = (str = "") => str.includes("@");
 
 function App({ handleSubmit }) {
   const [formData, setFormData] = useState({});
 
-  const handleOnChange = ({ target: { name, value } }) => setFormData((prev) => ({ ...prev, [name]: value }));
+  // const handleOnChange = ({ target: { name, value } }) => setFormData((prev) => ({ ...prev, [name]: value }));
 
   return (
     <Form name="login-form" onSubmit={handleSubmit}>
       <FormItem>
         <label htmlFor="email">Email:</label>
-        <input id="email" name="email" onChange={handleOnChange} />
+        {/* <input id="email" name="email" onChange={handleOnChange} /> */}
       </FormItem>
-      {formData.email && !validateInput(formData.email) ? <Error>Email not valid</Error> : null}
+      {/* {formData.email && !validateInput(formData.email) ? <Error>Email not valid</Error> : null} */}
       <FormItem>
-        <label htmlFor="password">Password:</label>
-        <input name="password" type="password" />
+        {/* <label htmlFor="password">Password:</label> */}
+        {/* <input name="password" type="password" /> */}
       </FormItem>
-      <Button>submit</Button>
+      {/* <Button>submit</Button> */}
     </Form>
   );
 }
