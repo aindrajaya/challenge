@@ -9,8 +9,8 @@ function App() {
   const onDrop = useCallback((acceptedFiles) => {
     console.log(acceptedFiles);
   }, []);
-
-  //declare var {getRootProps, getInputProps, isDragActive} that called useDropzone
+  
+  //declare variable that call useDropzone, should be accept image
   const {
     getRootProps,
     getInputProps,
@@ -19,7 +19,6 @@ function App() {
     isDragReject,
   } = useDropzone({ onDrop, accept: "text/csv" });
 
-  //declare variable that call useDropzone, should be accept image
 
   return (
     <div className="App">
