@@ -9,7 +9,9 @@ function App() {
     }, [])
 
     //declare variable that call useDropzone, should be accept image
-    const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
+    const { getRootProps, getInputProps, isDragActive } = useDropzone({
+        onDrop, accept: ['image/*', 'video/*']
+    })
 
     return (
         <div className="App">
