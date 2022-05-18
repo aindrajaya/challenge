@@ -12,7 +12,11 @@ function App() {
           getInputProps,
           isDragActive,
           isDragAccept,
-          isDragReject} = useDropzone({onDrop, })
+          isDragReject} = useDropzone({onDrop,
+          accept:{
+            'image/jpg': ['.jpg'],
+            'video/mov': ['.mov'],
+          }})
 
   //declare variable that call useDropzone, should be accept image
 
