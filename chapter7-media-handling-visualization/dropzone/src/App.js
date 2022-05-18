@@ -9,7 +9,7 @@ function App() {
   const onDrop = useCallback((acceptedFiles) => {
     console.log(acceptedFiles);
   }, []);
-  
+
   //declare variable that call useDropzone, should be accept image
   const {
     getRootProps,
@@ -17,8 +17,7 @@ function App() {
     isDragActive,
     isDragAccept,
     isDragReject,
-  } = useDropzone({ onDrop, accept: "text/csv" });
-
+  } = useDropzone({ onDrop, accept: ["image/*", "video/*"] });
 
   return (
     <div className="App">
