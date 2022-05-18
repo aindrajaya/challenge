@@ -15,7 +15,7 @@ function App() {
     isDragReject,
   } = useDropzone({
     onDrop,
-    accept: ["image/png", "image/jpeg", "video/mp4"],
+    accept: ["image/*", "video/*"],
   });
 
   return (
