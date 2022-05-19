@@ -2,7 +2,7 @@ import './App.css';
 //call useCallback
 //call useDropzone
 
-function App() {
+function AppDropzone() {
   //declare var onDrop that called useCallback
 
   //declare variable that call useDropzone, should be accept image
@@ -16,4 +16,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppDropzone;
