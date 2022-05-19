@@ -1,6 +1,8 @@
 import './App.css';
 import React, {useCallback} from 'react'
 import {useDropzone} from 'react-dropzone'
+import Video from "./Video";
+import BlogPhoto from './Image';
 
 function App() {
   //declare var onDrop that called useCallback
@@ -28,13 +30,15 @@ function App() {
 
   return (
     <div className="App">
-      <div className="dropzone">
+      {/* <div className="dropzone">
         <div  {...getRootProps()}>
-          {/* Add input */}
+          Add input
           <input {...getInputProps()} />
           <p>Drag 'n' drop some files here, or click to select files</p>
         </div>
-      </div>
+      </div> */}
+      <Video />
+      {/* <BlogPhoto/> */}
     </div>
   );
 }
