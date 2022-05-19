@@ -2,7 +2,7 @@ import './App.css';
 import {useCallback} from 'react'
 import {useDropzone} from 'react-dropzone'
 
-function App() {
+function AppDropzone() {
   //declare var onDrop that called useCallback
   const onDrop = useCallback(acceptedFiles => {
     console.log(acceptedFiles);
@@ -41,4 +41,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppDropzone;
