@@ -2,11 +2,8 @@ import './App.css';
 import React, { useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
 
-function App() {
+function AppDropzone() {
     //declare var onDrop that called useCallback
-    const onDrop = useCallback(acceptedFiles => {
-        console.log(acceptedFiles)
-    }, [])
 
     //declare variable that call useDropzone, should be accept image
     const { getRootProps, getInputProps, isDragActive } = useDropzone({
@@ -29,4 +26,4 @@ function App() {
     );
 }
 
-export default App;
+export default AppDropzone;
