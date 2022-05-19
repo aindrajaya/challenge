@@ -7,7 +7,7 @@ import "./styles.css"
 const BlogPhoto = () => {
   const [image, setImage] = useState("");
   const nama = "beach"
-  const clientId = "CHOQJeazu6no-4HguiJsVrcZOemdLrM7fATusMTXlnM";
+  const clientId = "14mDWtWQut9MgP3hcNHLOrEIWgyTXrMsT3X-4XgdsGI";
   const [photos, setPhotos] = useState([])
 
   const getData = () => {
