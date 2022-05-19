@@ -4,6 +4,7 @@ import React, {useState} from 'react';
 import { MemoizedVideoPlayer } from "./Video/VideoPlayer";
 import VideoOverlay from "./Video/VideoOverlay";
 import styles from "./Video/styles/Home.module.css";
+import BlogPhoto from './Image';
 // import "./styles.css"
 // import Video from "./Video";
 
@@ -51,9 +52,9 @@ const App = () => {
       {/* <AppDropzone /> */}
       {/* <MovieList /> */}
       {/* <Video /> */}
-      <main className={styles.main}>
+      {/* <main className={styles.main}>
         <div className="live-event-container">
-          {/* <Video /> */}
+          
           <MemoizedVideoPlayer
             ended={ended}
             timePlayed={timePlayed}
@@ -67,7 +68,8 @@ const App = () => {
         <button className="reset-button" onClick={restartLive}>
           Restart Live Simulation
         </button>
-      </main>
+      </main> */}
+      <BlogPhoto/>
     </div>    
   )
 }
