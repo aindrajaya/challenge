@@ -6,7 +6,7 @@ import './styles.css';
 
 const BlogPhoto = () => {
   // const [image, setImage] = useState('');
-  const nama = 'beach';
+  const nama = 'programming';
   const clientId = '1j1ClxLn5fJpzcfdUtcVsutJoty1Ft4-5rmdIHauhdw';
   const [photos, setPhotos] = useState([]);
 
@@ -32,8 +32,8 @@ const BlogPhoto = () => {
 
   return (
     <div className="result">
-      {photos.map((image) => (
-        <div className="AppImg">
+      {photos.map((image, index) => (
+        <div className="AppImg" key={index}>
           <p className="username"> Photo by {image.user.name}</p>
           <p className="like">👍 {image.likes}</p>
           <div className="AppImage">
