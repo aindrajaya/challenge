@@ -1,14 +1,14 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 
 const getStateFromLocalStorage = (defaultValue, key) => {
   const storage = localStorage.getItem(key)
   console.log(storage);
-  if(storage) return JSON.parse(storage).count;
+  if (storage) return JSON.parse(storage).count;
   return defaultValue;
 }
 
 const storeStateInLocalStorage = count => {
-  localStorage.setItem("counterStorage", JSON.stringify({count}))
+  localStorage.setItem("counterStorage", JSON.stringify({ count }))
   console.log(localStorage);
 }
 
@@ -18,7 +18,7 @@ const useLocalStorage = (initialState, key) => {
   const getLocalStorage = () => {
     const storage = localStorage.getItem(key)
     console.log(storage);
-    if(storage) return JSON.parse(storage).value;
+    if (storage) return JSON.parse(storage).value;
     return initialState;
   }
 
@@ -32,53 +32,47 @@ const useLocalStorage = (initialState, key) => {
       console.log(error);
     }
   }
-  
+
   //Svae value that get from local
   const [value, setValue] = React.useState(getLocalStorage())
   console.log("before", getLocalStorage());
 
   //Store in local
   useEffect(() => {
-    localStorage.setItem(key, JSON.stringify({value}))
+    localStorage.setItem(key, JSON.stringify({ value }))
   }, [value], console.log("After", value))
 
   return [value, setValue]
 }
 
-const CounterFunc = ({max, step, min}) => {
-  // const [count, setCount] = useLocalStorage(0, "count") //ini bukan useState
-  // const [count, setCount] = useState(getStateFromLocalStorage(0))
-  const [count, setCount] = useState(0) //
-  console.log("before", count);
+const getStateFromLocalStorage = () => {
+  const storage = localStorage.getItem("counterState")
+  console.log(storage);
+  if (storage) return JSON.parse(storage).count;
+  return { count: 0 };
+}
 
-  const increment = () =>  {
-    setCount(c => {
-      if(c >= max){
-        alert("item habis")
-        return c
-      } 
-      return c + step
-    })
+const CounterFunc = ({ max, step, min }) => {
+  const [count, setCount] = React.useState(0)
+
+  const increment = () => {
+    if (count >= max) return alert("sudah mencapai batas maksimal");
+    return setCount(count + 1)
   }
 
-  //Side effect, adalah proses lain yang di jalankan selain proses utama
-  useEffect(() => {
-    document.title = `Your count is ${count}`//componentDidUpdate -> untuk update title, sesuai dengan state count
-    console.log("after", count)
-  },[count]) //dependencies, merupaka sesuatu pengubah
-  
-  
-  // useEffect(() => {
-  //   // storeStateInLocalStorage(count)
-  // }, [count]) 
-
-  const decrement = () =>  {
-    if(count === min) return alert("item is zero")    
-    setCount(count - step)
+  const decrement = () => {
+    if (count <= min) return alert("sudah mencapai batas minimal");
+    return setCount(count - 1)
   }
+
+  //Side effect, proses lain yang dijalankan selain proses utama
+  React.useEffect(() => {
+    document.title = `Your count is:  ${count}` //componentDidMount = untuk update title
+  }, [count]) //dependencies, sesuatu pengubah
+
   const reset = () => setCount(0)
 
-  return(
+  return (
     <div className="Counter">
       <p className="count">{count}</p>
       <section className="controls">
