@@ -10,7 +10,6 @@ function App(){
       {/* <MovieList /> */}
       <Video />
     </div>
-
   )
 }
 
