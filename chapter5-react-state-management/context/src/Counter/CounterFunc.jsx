@@ -45,6 +45,8 @@ const useLocalStorage = (initialState, key) => {
   return [value, setValue]
 }
 
+
+
 const CounterFunc = ({max, step, min}) => {
   // const [count, setCount] = useLocalStorage(0, "count") //ini bukan useState
   // const [count, setCount] = useState(getStateFromLocalStorage(0))
@@ -61,21 +63,17 @@ const CounterFunc = ({max, step, min}) => {
     })
   }
 
-  //Side effect, adalah proses lain yang di jalankan selain proses utama
-  useEffect(() => {
-    document.title = `Your count is ${count}`//componentDidUpdate -> untuk update title, sesuai dengan state count
-    console.log("after", count)
-  },[count]) //dependencies, merupaka sesuatu pengubah
-  
-  
-  // useEffect(() => {
-  //   // storeStateInLocalStorage(count)
-  // }, [count]) 
-
-  const decrement = () =>  {
-    if(count === min) return alert("item is zero")    
-    setCount(count - step)
+  const decrement = () => {
+    if(count === min) return alert("Sudah mencapai batas");
+    return setCount(count - step)
   }
+
+  //Side effect, adalah proses lain yang di jalankan selain proses utama
+  React.useEffect(() => {
+    document.title = `Angka Sekarang : ${count}`//componentDidMount -> untuk update title, sesuai dengan state count
+  }, [count]) //dependencies, merupaka sesuatu pengubah
+  
+  
   const reset = () => setCount(0)
 
   return(
