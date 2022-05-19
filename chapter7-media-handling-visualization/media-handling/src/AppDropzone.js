@@ -2,10 +2,15 @@ import "./App.css";
 import { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 
+<<<<<<< HEAD:chapter7-media-handling-visualization/dropzone/src/App.js
 function App() {
   const onDrop = useCallback((acceptedFiles) => {
     console.log(acceptedFiles);
   }, []);
+=======
+function AppDropzone() {
+  //declare var onDrop that called useCallback
+>>>>>>> 46a076b1e56fe831685acc15838c124c5a51e07a:chapter7-media-handling-visualization/media-handling/src/AppDropzone.js
 
   const {
     getRootProps,
@@ -38,4 +43,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppDropzone;
