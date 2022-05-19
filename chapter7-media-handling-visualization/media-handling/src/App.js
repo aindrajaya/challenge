@@ -1,7 +1,8 @@
 //import AppDropzone from "./AppDropzone";
 //import "./styles.css"
 //import Video from "./Video";
-import Image from "./Image";
+//import Image from "./Image";
+import MovieList from "./Report/MovieList"
 
 function App(){
   return(
@@ -9,7 +10,8 @@ function App(){
       {/* <AppDropzone /> */}
       {/* <MovieList /> */}
       {/*<Video />*/}
-      <Image />
+      {/*<Image />*/}
+      <MovieList />
     </div>
     
   )

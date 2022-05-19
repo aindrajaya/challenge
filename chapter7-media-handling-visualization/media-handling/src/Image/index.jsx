@@ -6,13 +6,13 @@ import "./styles.css"
 
 const BlogPhoto = () => {
   const [image, setImage] = useState("");
-  const nama = "beach"
+  const nama = "flower"
   const clientId = "14mDWtWQut9MgP3hcNHLOrEIWgyTXrMsT3X-4XgdsGI";
   const [photos, setPhotos] = useState([])
 
   const getData = () => {
     try {
-     axios.get(`https://api.unsplash.com/search/photos?page=1&query=beach&client_id=${clientId}`)
+     axios.get(`https://api.unsplash.com/search/photos?page=1&query=flower&client_id=${clientId}`)
      .then((res) => {
        setPhotos(res.data.results)
      })
