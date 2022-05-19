@@ -1,19 +1,17 @@
-import './App.css';
-//call useCallback
-//call useDropzone
+import AppDropzone from "./AppDropzone";
 
-function App() {
-  //declare var onDrop that called useCallback
+import "./styles.css"
+import Video from "./Video";
 
-  //declare variable that call useDropzone, should be accept image
-
-  return (
+function App(){
+  return(
     <div className="App">
-      <div className="dropzone">
-        {/* Add input */}
-      </div>
+      {/* <AppDropzone /> */}
+      {/* <MovieList /> */}
+      <Video />
     </div>
-  );
+    
+  )
 }
 
-export default App;
+export default App
