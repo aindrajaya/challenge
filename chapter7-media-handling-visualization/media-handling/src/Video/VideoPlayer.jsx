@@ -15,7 +15,7 @@ export const VideoPlayer = ({
       ref={(ref) => {
         player = ref;
       }}
-      url="https://www.youtube.com/watch?v=DWcJFNfaw9c"
+      url="https://res.cloudinary.com/amarachi-2812/video/upload/v1630370229/videoplayback_1_pr2hzi.mp4"
       playing={playing}
       controls={controls}
       onStart={() => {
