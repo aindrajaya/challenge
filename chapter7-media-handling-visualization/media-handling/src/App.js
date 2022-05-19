@@ -1,6 +1,6 @@
 import AppDropzone from "./AppDropzone";
 
-import "./styles.css"
+// import "./styles.css"
 import Video from "./Video";
 
 function App(){
