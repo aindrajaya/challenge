@@ -14,7 +14,10 @@ const years = [
     { value: "2016", text: "2016" },
     { value: "2017", text: "2017" },
     { value: "2018", text: "2018" },
-    { value: "2019", text: "2019" }
+    { value: "2019", text: "2019" },
+    { value: "2020", text: "2020" },
+    { value: "2021", text: "2021" },
+    { value: "2022", text: "2022" }
 ];
 
 export default function MovieList() {
@@ -26,7 +29,8 @@ export default function MovieList() {
         setYear(e.target.value);
         try {
             let res = await Axios(
-                `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&primary_release_year=${year}&sort_by=vote_average.desc`
+                // `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&primary_release_year=${year}&sort_by=vote_average.desc`
+                `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&primary_release_year=${year}&sort_by=vote_average.desc`
             );
             setDetails(res.data.results);
             setHide(true)
