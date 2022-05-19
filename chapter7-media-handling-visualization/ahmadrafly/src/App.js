@@ -1,11 +1,13 @@
 import Video from "./Video";
+import Image from "./Image";
 
 function App() {
   return (
     <div className="App">
       {/* <AppDropzone /> */}
       {/* <MovieList /> */}
-      <Video />
+      <Image />
+      {/* <Video /> */}
     </div>
   );
 }
