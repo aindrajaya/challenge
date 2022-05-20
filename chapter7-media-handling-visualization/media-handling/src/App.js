@@ -2,6 +2,7 @@
 // import "./styles.css"
 import Video from "./Video";
 import BlogPhoto from "./Image";
+import RepoList from "./Report/MovieList";
 
 function App(){
   return(
@@ -9,7 +10,8 @@ function App(){
       {/* <AppDropzone /> */}
       {/* <MovieList /> */}
       {/* <Video /> */}
-      <BlogPhoto />
+      {/* <BlogPhoto /> */}
+      <RepoList />
     </div>
     
   )
