@@ -22,7 +22,6 @@ const BlogPhoto = () => {
   }
 
   console.log(photos);
-
   useEffect(() => {
     getData()
   }, [])
