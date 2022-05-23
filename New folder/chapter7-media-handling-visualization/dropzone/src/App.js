@@ -16,7 +16,10 @@ function App() {
     isDragActive,
     isDragAccept,
     isDragReject,
-  } = useDropzone(onDrop);
+  } = useDropzone({
+    onDrop,
+    accept: ["image/*", "video/*"],
+  });
 
   return (
     <div className="App">
