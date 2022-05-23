@@ -3,6 +3,8 @@ import React, {useCallback} from 'react'
 import {useDropzone} from 'react-dropzone'
 import Video from "./Video";
 import BlogPhoto from './Image';
+import MovieList from './Report/MovieList';
+import Chart from './Chart/index';
 
 function App() {
   //declare var onDrop that called useCallback
@@ -37,8 +39,10 @@ function App() {
           <p>Drag 'n' drop some files here, or click to select files</p>
         </div>
       </div> */}
-      <Video />
+      {/* <Video /> */}
       {/* <BlogPhoto/> */}
+      <MovieList/>
+      <Chart/>
     </div>
   );
 }
