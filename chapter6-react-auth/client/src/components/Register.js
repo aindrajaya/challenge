@@ -8,6 +8,8 @@ import { isEmail } from "validator";
 
 import { register } from "../actions/auth";
 
+// 1. Mencari tombol register
+
 const required = (value) => {
   if (!value) {
     return (
@@ -57,7 +59,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [successful, setSuccessful] = useState(false);
 
-  const { message } = useSelector(state => state.message);
+  const { message } = useSelector((state) => state.message);
   const dispatch = useDispatch();
 
   const onChangeUsername = (e) => {
@@ -102,6 +104,7 @@ const Register = () => {
           className="profile-img-card"
         />
 
+        {/* 3. Menemukan function yang berfungsi untuk mentrigger tombol sign up yaitu handleRegister */}
         <Form onSubmit={handleRegister} ref={form}>
           {!successful && (
             <div>
@@ -141,6 +144,7 @@ const Register = () => {
                 />
               </div>
 
+              {/* 2. Menemukan tombol kirim sign up */}
               <div className="form-group">
                 <button className="btn btn-primary btn-block">Sign Up</button>
               </div>
@@ -149,7 +153,12 @@ const Register = () => {
 
           {message && (
             <div className="form-group">
-              <div className={ successful ? "alert alert-success" : "alert alert-danger" } role="alert">
+              <div
+                className={
+                  successful ? "alert alert-success" : "alert alert-danger"
+                }
+                role="alert"
+              >
                 {message}
               </div>
             </div>

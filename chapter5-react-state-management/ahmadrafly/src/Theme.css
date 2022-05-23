@@ -146,9 +146,10 @@ a {
 .switch {
   display: flex;
   width: 100vw;
-  height: 100px;
+  height: 100%;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .switch label {
@@ -161,4 +162,8 @@ a {
 
 #dark .switch label {
   color: white;
+}
+
+.nama {
+  color: black !important;
 }
