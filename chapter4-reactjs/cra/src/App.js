@@ -12,18 +12,25 @@ import Testimonial from './pages/Testimonial';
 function App() {
   const auth = useAuth()
   // 1. Buat useState, bentuknya array
+  let [data,setData] = useState([]);
 
   const getPostData =  async() => {
     try {
       //2. Panggil data json dengan fetch ('https://jsonplaceholder.typicode.com/users')
+      fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(json => {
+        console.log(json)
+        setData(data=json)
+      })
     } catch (error) {
       console.log(error)
     }
   }
 
   useEffect(() => {
-    //3. Jalankan getPostData()
-  }, [])
+    getPostData();
+  }, [data])
   
   // console.log(users)
 
@@ -44,6 +51,13 @@ function App() {
             <Team />
             }/>
         </Route>
+
+        <Route path='/post' element={<PrivateOutlet />}>
+          <Route path='/post' element={
+            <PostComponent data={data} />
+            }/>
+        </Route>
+
         {/* //TAMBAHKAN SATU ROUTES KE HALAMAN POST COMPONENT */}
       </Routes> 
     </BrowserRouter>
