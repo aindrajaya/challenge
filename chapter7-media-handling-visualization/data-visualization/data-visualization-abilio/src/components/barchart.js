@@ -1,10 +1,10 @@
 import { Bar } from "react-chartjs-2";
 
-const barchart = ({ chartData }) => {
+const barchart = (props) => {
   return (
     <div>
       <Bar
-        data={chartData}
+        data={props.chartData}
         options={{
           plugins: {
             title: {
