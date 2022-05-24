@@ -62,6 +62,20 @@ const CounterFunc = ({max, step, min}) => {
   }
 
   //Side effect, adalah proses lain yang di jalankan selain proses utama
+<<<<<<< HEAD
+<<<<<<< HEAD
+  React.useEffect(() => {
+    document.title = `counter ke ${count}`
+    //componentDidMount -> untuk update title, sesuai dengan state count
+  }, [count]) //dependencies, merupaka sesuatu pengubah
+  
+  // const decrement = () =>  setCount(count - 1)
+  const decrement = () => {
+    if (count === min) return alert('Nilai sudah minimal');
+    return setCount(count - step)
+=======
+=======
+>>>>>>> aindrajaya-main
   useEffect(() => {
     document.title = `Your count is ${count}`//componentDidUpdate -> untuk update title, sesuai dengan state count
     console.log("after", count)
@@ -75,6 +89,10 @@ const CounterFunc = ({max, step, min}) => {
   const decrement = () =>  {
     if(count === min) return alert("item is zero")    
     setCount(count - step)
+<<<<<<< HEAD
+>>>>>>> 85be699c8a1b6463de53417fb1fdd0c8c6c2d06d
+=======
+>>>>>>> aindrajaya-main
   }
   const reset = () => setCount(0)
 
