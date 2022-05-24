@@ -3,12 +3,13 @@ const reducerContext = (state, action) => {
   switch (action.type) {
     case "increment":
       return {
-        // ...state,
+        ...state,
         count: state.count + step
       }
     case "decrement":
       return {
-        count: state.count - 1
+        ...state,
+        count: state.count - step
       }
     case "reset":
       return {

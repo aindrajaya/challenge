@@ -81,7 +81,7 @@ const Login = (props) => {
   }
 
   //Sebagai contoh
-  const message2 = "Ini ujicoba notifikasi"
+  //const message2 = "Ini ujicoba notifikasi"
 
   return (
     <div className="col-md-12">

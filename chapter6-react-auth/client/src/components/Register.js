@@ -6,6 +6,7 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 
+// #7. Menuju file auth pada folder actions
 import { register } from "../actions/auth";
 
 const required = (value) => {
@@ -75,6 +76,7 @@ const Register = () => {
     setPassword(password);
   };
 
+  // #4. Menghandle saat user menekan tombol register. Jika benar akan diarahkan ke register, jika salah ada pesan error
   const handleRegister = (e) => {
     e.preventDefault();
 

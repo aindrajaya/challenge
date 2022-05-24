@@ -119,6 +119,7 @@ const App = () => {
                 </Link>
               </li>
 
+              {/*#2. Menuju halaman register */}
               <li className="nav-item">
                 <Link to={"/register"} className="nav-link">
                   Sign Up
