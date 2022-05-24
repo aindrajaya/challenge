@@ -6,6 +6,7 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 
+// proses 7 menuju ke folder actions/auth.js
 import { register } from "../actions/auth";
 
 const required = (value) => {
@@ -59,6 +60,7 @@ const Register = () => {
 
   const { message } = useSelector(state => state.message);
   const dispatch = useDispatch();
+  // trigger action untuk mengakses redux global store atau api nya
 
   const onChangeUsername = (e) => {
     const username = e.target.value;
@@ -74,7 +76,7 @@ const Register = () => {
     const password = e.target.value;
     setPassword(password);
   };
-
+  // #Task 4. menemukan fungsi handleregister yang berupa proses autentikasi
   const handleRegister = (e) => {
     e.preventDefault();
 
@@ -83,6 +85,7 @@ const Register = () => {
     form.current.validateAll();
 
     if (checkBtn.current.context._errors.length === 0) {
+      // #Task 5. trigger action register untuk melakukan autentikasi, lalu mencari di actions/auth.js untuk mencari fungsi/action register() 
       dispatch(register(username, email, password))
         .then(() => {
           setSuccessful(true);
@@ -90,6 +93,7 @@ const Register = () => {
         .catch(() => {
           setSuccessful(false);
         });
+        //#Proses 6 if successful then return true dan apabila gagal maka akan catch false
     }
   };
 
@@ -101,7 +105,8 @@ const Register = () => {
           alt="profile-img"
           className="profile-img-card"
         />
-
+        {/*  */}
+        {/* task 3. menemukan function trigger register di proses,handleRegister()*/}
         <Form onSubmit={handleRegister} ref={form}>
           {!successful && (
             <div>
@@ -140,13 +145,13 @@ const Register = () => {
                   validations={[required, vpassword]}
                 />
               </div>
-
+              {/* Task 2, button Sign up */}
               <div className="form-group">
                 <button className="btn btn-primary btn-block">Sign Up</button>
               </div>
             </div>
           )}
-
+          {/* Proses 10. if variable message true then mengeluarkan output message */}
           {message && (
             <div className="form-group">
               <div className={ successful ? "alert alert-success" : "alert alert-danger" } role="alert">

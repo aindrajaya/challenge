@@ -7,6 +7,7 @@ import "./App.css";
 
 //#3. Menuju ke tempat komponent tersebut
 import Login from "./components/Login";
+// #3. menuju ke komponen registrasi
 import Register from "./components/Register";
 
 import Home from "./components/Home";
@@ -132,10 +133,10 @@ const App = () => {
           <Switch>
             <Route exact path={["/", "/home"]} component={Home} />
             <Route exact path="/login" component={Login} />
-            {/* #2. 2nd Attention */}
+            {/* #2. 2nd Attention component login*/}
             <Route exact path="/register" component={Register} />
+            {/* #2. 2nd attention component regis */}
             <Route exact path="/profile" component={Profile} />
-
             <Route path="/user" component={BoardUser} />
             <Route path="/mod" component={BoardModerator} />
             <Route path="/admin" component={BoardAdmin} />
