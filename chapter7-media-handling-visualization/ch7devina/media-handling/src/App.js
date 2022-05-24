@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 // import { MemoizedVideoPlayer } from "./Video/VideoPlayer";
 // import VideoOverlay from "./Video/VideoOverlay";
 // import styles from "./Video/styles/Home.module.css";
 // import BlogPhoto from './Image';
-import MovieList from './Report/MovieList';
+// import MovieList from './Report/MovieList';
+import { Chart } from "./Components/componentchart";
 
 // import AppDropzone from "./AppDropzone";
 // import ReactPlayer from 'react-player';
@@ -49,10 +50,39 @@ const App = () => {
   // if (timePlayed > duration) {
   //   endVideo();
   // }
+  const [chartData, setChartData] = useState({})
+  useEffect(() => {
+    const fetchPrices = async () => {
+      const res = await fetch("https://api.coincap.io/v2/assets/?limit=5")
+      const data = await res.json()
+      
+      console.log(data)
+      setChartData({
+        labels: data.data.map((crypto) => crypto.name),
+        datasets: [
+          {
+            label: "Price in USD",
+            data: data.data.map((crypto) => crypto.priceUsd),
+            backgroundColor: [
+              "#ffbb11",
+              "#ecf0f1",
+              "#50AF95",
+              "#f3ba2f",
+              "#2a71d0"
+            ]
+          }
+        ]
+      });
+    };
+    fetchPrices()
+  }, []);
+
+  
+
   return(
     <div className="App">
       {/* <AppDropzone /> */}
-      <MovieList/>
+      {/* <MovieList/> */}
       {/* <Video /> */}
       {/* <main className={styles.main}>
         <div className="live-event-container">
@@ -72,6 +102,8 @@ const App = () => {
         </button>
       </main> */}
       {/* <BlogPhoto/> */}
+      Hello
+      <Chart chartData={chartData} />
     </div>    
   )
 }
