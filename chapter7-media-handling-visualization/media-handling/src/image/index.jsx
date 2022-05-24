@@ -1,10 +1,13 @@
 import React, {useEffect, useState} from "react";
 import ModalImage from "react-modal-image";
 import axios from "axios";
+
 import "./styles.css"
 
 const BlogPhoto = () => {
-  const clientId = "iWtrIbpS4kSYklcOlPf9pT4OjKSTAmXBzJc_QR9PvHI";
+  const [image, setImage] = useState("");
+  const nama = "beach"
+  const clientId = "CHOQJeazu6no-4HguiJsVrcZOemdLrM7fATusMTXlnM";
   const [photos, setPhotos] = useState([])
 
   const getData = () => {
@@ -19,7 +22,7 @@ const BlogPhoto = () => {
   }
 
   console.log(photos);
-
+  
   useEffect(() => {
     getData()
   }, [])
