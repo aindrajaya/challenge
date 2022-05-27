@@ -1,0 +1,28 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "todo": "ya begitulah"
+    },
+    {
+      "id": 2,
+      "todo": "id kedua"
+    },
+    {
+      "id": "64105cd7-1588-48c6-898a-574d4df9b1c9",
+      "todo": "data baru"
+    },
+    {
+      "id": "8621343e-9b49-4018-bb83-e210ad2a5f59",
+      "todo": "data tambah lagi"
+    },
+    {
+      "id": "40505ab4-806a-4663-87d8-b912bbae217c",
+      "todo": "edit 2"
+    },
+    {
+      "id": "2e99c63d-f050-4ac6-a75a-e766283d5fde",
+      "todo": "test edit 1"
+    }
+  ]
+}
