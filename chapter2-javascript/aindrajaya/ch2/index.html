@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice 2</title>
+    <style>
+        body {
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+        
+        .plus {
+            width: 5em;
+            height: 4em;
+            background-color: blue;
+            color: white;
+            font-size: 3em;
+            border-radius: 1em;
+            border: 1px solid blue;
+            cursor: pointer;
+        }
+        
+        .plus:hover {
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+        
+        .minus {
+            width: 5em;
+            height: 4em;
+            background-color: red;
+            color: white;
+            font-size: 3em;
+            border-radius: 1em;
+            border: 1px solid red;
+            cursor: pointer;
+        }
+        
+        .minus:hover {
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+        
+        .displayed {
+            margin: 0 1em;
+            font-size: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="minus" class="minus">-</button>
+    <p class="displayed" id="hasil">0</p>
+    <button id="plus" class="plus">+</button>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

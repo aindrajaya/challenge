@@ -1,24 +1,35 @@
 export const increment = (dispatch, max, step, count) => {
   // console.log("data di action", max, step)
-  if(count >= max){
+  if (count >= max) {
     alert("barang sudah habis")
     return count;
   } else {
     dispatch({
       type: "increment",
-      payload: {step}
+      payload: { step }
     })
   }
 }
 
-export const decrement = (dispatch) => {
-  dispatch({
-    type: "decrement",
-  })
+export const decrement = (dispatch, min, step, count) => {
+  if (count === min) {
+    alert('barang masih banyak, ayo tambah lagi 😂')
+    return count
+  } else {
+    dispatch({
+      type: "decrement",
+      payload: { step }
+    })
+  }
 }
 
-export const reset = (dispatch) => {
-  dispatch({
-    type: "reset",
-  })
+export const reset = (dispatch, min, count) => {
+  if (count <= min) {
+    return 0;
+  } else {
+    dispatch({
+      type: "reset",
+      payload: { reset }
+    })
+  }
 }

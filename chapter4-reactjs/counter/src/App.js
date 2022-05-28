@@ -16,10 +16,15 @@ function App() {
   }
 
   return (
+<<<<<<< HEAD
+    <div className="container">
+      <Counter />
+=======
     <div className='container'>
       {/* <ClassCounter /> */}
        {/* Mengirim props berupa state dan methods dari App.js ke FunctionalCounter */}
       <FunctionalCounter count={count} inc={increment} dec={decrement}/>
+>>>>>>> b4883b88b2ad8be6df7e41797adba7cf3df07914
     </div>
   );
 }
