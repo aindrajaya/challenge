@@ -1,5 +1,5 @@
 .App {
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -19,12 +19,12 @@
 body {
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 body .main {
   width: 400px;
   height: 400px;
-
   border-radius: 1.5em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
 }
@@ -38,8 +38,8 @@ body .main {
 }
 
 .sign {
-  padding-top: 40px;
-  font-family: "Ubuntu", sans-serif;
+  padding-top: 20px;
+  font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
   font-size: 23px;
 }
@@ -83,7 +83,7 @@ body .main {
   margin-left: 46px;
   text-align: center;
   margin-bottom: 27px;
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 form.form1 {
@@ -105,7 +105,7 @@ form.form1 {
   margin-left: 46px;
   text-align: center;
   margin-bottom: 27px;
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 #light .username,
@@ -135,7 +135,7 @@ form.form1 {
   padding-right: 40px;
   padding-bottom: 10px;
   padding-top: 10px;
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   margin-left: 35%;
   font-size: 13px;
   box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
