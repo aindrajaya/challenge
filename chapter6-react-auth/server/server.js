@@ -18,9 +18,10 @@ app.use(express.urlencoded({ extended: true }));
 
 const db = require("./app/models");
 const Role = db.role;
-
+// W40ZjOmLe9E1EXWC
+// mongodb+srv://panca:<password>@cluster0.5h2pr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 db.mongoose
-  .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
+  .connect(`mongodb+srv://panca:W40ZjOmLe9E1EXWC@cluster0.5h2pr.mongodb.net/react-auth-api?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
