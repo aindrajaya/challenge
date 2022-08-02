@@ -34,9 +34,9 @@ class CounterClass extends React.Component {
 
   incrementUsingProps(){
     const {max, step} = this.props //menggunakan destructuring
-    this.setState((c) => { //c itu bisa diubah apapun, dia menggantikan this.state, seperti fungsi map()
-      if(c.count >= max) return;
-      return {count: c.count + step}
+    this.setState((counter) => { //c itu bisa diubah apapun, dia menggantikan this.state, seperti fungsi map()
+      if(counter.count >= max) return;
+      return {count: counter.count + step}
     })
   }
 
@@ -47,14 +47,14 @@ class CounterClass extends React.Component {
 
   decrementUsingProps(){
     const {min, step} = this.props //menggunakan destructuring
-    this.setState((c) => { //c itu bisa diubah apapun, dia menggantikan this.state, seperti fungsi map()
-      if(c.count === min) return;
-      return {count: c.count - step}
+    this.setState((counter) => { //c itu bisa diubah apapun, dia menggantikan this.state, seperti fungsi map()
+      if(counter.count === min) return;
+      return {count: counter.count - step}
     })
   }
 
   reset(){
-    this.setState({count: 0});
+    this.setState({ count: 0 });
   }
 
   //Function localStorage

@@ -1,0 +1,16 @@
+{
+  "todos": [
+    {
+      "id": "1119fcd1-25ff-47cc-a900-840c8fcbf5bb",
+      "todo": "Makan"
+    },
+    {
+      "id": "90ab861d-e058-4cf8-bbc9-61f808df3243",
+      "todo": "Ngoding"
+    },
+    {
+      "id": "cb68d350-c40c-4ccb-bf2a-c85b66e36ce5",
+      "todo": "Tidur"
+    }
+  ]
+}
