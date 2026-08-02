@@ -48,6 +48,7 @@ const vpassword = (value) => {
   }
 };
 
+// 3. component register yang dipanggil oleh sign up
 const Register = () => {
   const form = useRef();
   const checkBtn = useRef();
@@ -60,6 +61,7 @@ const Register = () => {
   const { message } = useSelector(state => state.message);
   const dispatch = useDispatch();
 
+  // 4. fungsi validasi form username, email, dan password
   const onChangeUsername = (e) => {
     const username = e.target.value;
     setUsername(username);
@@ -75,6 +77,7 @@ const Register = () => {
     setPassword(password);
   };
 
+  // 5. fungsi handleregister dijalankan setelah klik signup dengan default false
   const handleRegister = (e) => {
     e.preventDefault();
 
@@ -83,7 +86,9 @@ const Register = () => {
     form.current.validateAll();
 
     if (checkBtn.current.context._errors.length === 0) {
+      //6. memantik action register untuk melakukan registrasi
       dispatch(register(username, email, password))
+       // 7. jika berhasil akan return true dan jika gagal akan return false
         .then(() => {
           setSuccessful(true);
         })
@@ -102,6 +107,8 @@ const Register = () => {
           className="profile-img-card"
         />
 
+      {/* 4.  menampilkan form untuk diisi username, email, dan password
+      jika di submit/ klik tombol signup, fungsi handle register akan memproses inputan*/}
         <Form onSubmit={handleRegister} ref={form}>
           {!successful && (
             <div>
@@ -147,6 +154,10 @@ const Register = () => {
             </div>
           )}
 
+          
+          {/* 8. Dari proses action yang telah dijalankan akan memberikan response berupa message
+          yang akan ditampilkan. jika successful (true) alert-success yang ditampilkan. 
+          jika succesfull(false) aler-danger yang ditampilkan*/}
           {message && (
             <div className="form-group">
               <div className={ successful ? "alert alert-success" : "alert alert-danger" } role="alert">

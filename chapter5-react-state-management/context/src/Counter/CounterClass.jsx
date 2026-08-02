@@ -45,6 +45,7 @@ class CounterClass extends React.Component {
     this.setState({count: this.state.count - 1});
   }
 
+
   decrementUsingProps(){
     const {min, step} = this.props //menggunakan destructuring
     this.setState((c) => { //c itu bisa diubah apapun, dia menggantikan this.state, seperti fungsi map()

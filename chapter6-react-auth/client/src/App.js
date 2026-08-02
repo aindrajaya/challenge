@@ -119,6 +119,8 @@ const App = () => {
                 </Link>
               </li>
 
+               {/* 1. link navbar sign up/ register */}
+
               <li className="nav-item">
                 <Link to={"/register"} className="nav-link">
                   Sign Up
@@ -133,6 +135,7 @@ const App = () => {
             <Route exact path={["/", "/home"]} component={Home} />
             <Route exact path="/login" component={Login} />
             {/* #2. 2nd Attention */}
+            {/* route ke component register */}
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={Profile} />
 

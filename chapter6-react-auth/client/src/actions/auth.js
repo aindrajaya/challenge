@@ -11,6 +11,8 @@ import {
 import AuthService from "../services/auth.service";
 // import Axios from "axios";
 
+// register 6. proses action register dengan parameter username, email dan password
+// jika berhasil, maka register sukses. jika gagal maka register file.
 export const register = (username, email, password) => (dispatch) => {
   return AuthService.register(username, email, password).then(
     (response) => {

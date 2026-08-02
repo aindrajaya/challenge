@@ -8,7 +8,7 @@ const reducerContext = (state, action) => {
       }
     case "decrement":
       return {
-        count: state.count - 1
+        count: state.count - step
       }
     case "reset":
       return {
