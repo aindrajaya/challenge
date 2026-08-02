@@ -20,7 +20,8 @@ const db = require("./app/models");
 const Role = db.role;
 
 db.mongoose
-  .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
+  // .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
+  .connect(`mongodb+srv://didapatria:XZxbuRQuh2zBrPTm@cluster0.pivbz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })

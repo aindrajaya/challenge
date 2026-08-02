@@ -7,6 +7,7 @@ import "./App.css";
 
 //#3. Menuju ke tempat komponent tersebut
 import Login from "./components/Login";
+//#3. Menuju ke tempat komponent tersebut
 import Register from "./components/Register";
 
 import Home from "./components/Home";
@@ -111,7 +112,7 @@ const App = () => {
               </li>
             </div>
           ) : (
-            //# 1. First Attenttion - false result from currentUser null or not
+            //# 1. First Attenttion - false result from currentUser null or not.
             <div className="navbar-nav ml-auto">
               <li className="nav-item">
                 <Link to={"/login"} className="nav-link">
@@ -134,6 +135,7 @@ const App = () => {
             <Route exact path="/login" component={Login} />
             {/* #2. 2nd Attention */}
             <Route exact path="/register" component={Register} />
+            {/* #2. 2nd Attention */}
             <Route exact path="/profile" component={Profile} />
 
             <Route path="/user" component={BoardUser} />
