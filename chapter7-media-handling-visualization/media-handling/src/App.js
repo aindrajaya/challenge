@@ -1,17 +1,15 @@
-import AppDropzone from "./AppDropzone";
-
-import "./styles.css"
-import Video from "./Video";
+import Image from "./image";
 
 function App(){
   return(
     <div className="App">
       {/* <AppDropzone /> */}
       {/* <MovieList /> */}
-      <Video />
+      {/* <Video /> */}
+      <Image />
     </div>
-    
+
   )
 }
 
-export default App
+export default App;
