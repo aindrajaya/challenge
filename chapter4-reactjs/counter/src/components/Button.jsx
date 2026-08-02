@@ -8,4 +8,4 @@ export const Button = ({act, label}) => { //Memakai props dari parent component 
       {label}
     </button>
   )
-}
+} 

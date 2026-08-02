@@ -9,4 +9,4 @@ export const Button = () => {
       Header 2
     </button>
   )
-}
+} 
