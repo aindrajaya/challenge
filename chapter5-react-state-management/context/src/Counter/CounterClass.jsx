@@ -41,7 +41,7 @@ class CounterClass extends React.Component {
   }
 
   decrement(){
-    //Tambahkan batasan count === min, menggunakan props
+   
     this.setState({count: this.state.count - 1});
   }
 
