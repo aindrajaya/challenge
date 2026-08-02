@@ -1,5 +1,5 @@
 const reducerContext = (state, action) => {
-  const {step} = action.payload
+  const { step } = action.payload
   switch (action.type) {
     case "increment":
       return {
@@ -8,7 +8,7 @@ const reducerContext = (state, action) => {
       }
     case "decrement":
       return {
-        count: state.count - 1
+        count: state.count - step
       }
     case "reset":
       return {
