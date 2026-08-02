@@ -1,0 +1,32 @@
+{
+  "todos": [
+    {
+      "id": "1f9562ec-c73c-4469-8324-4b0b24c10013",
+      "activity": "Makan terus"
+    },
+    {
+      "id": "5c39c8a5-14e0-4f35-82e3-3f2e444d0fd4",
+      "activity": "Tidur"
+    },
+    {
+      "id": "a3389525-4f62-4b78-af41-416ccb03f348",
+      "activity": "Rebahan"
+    },
+    {
+      "id": "d13c5d4f-4f47-4dc5-bdb0-d00c728764d6",
+      "activity": "Challenge"
+    },
+    {
+      "id": "e06ed9ef-8723-42a4-aeb6-7a2195add960",
+      "activity": "mini-challenge"
+    },
+    {
+      "id": "e5ff7749-2429-4cfc-978f-f39159c61d86",
+      "activity": "gitu-gitu doang hidupuku :)"
+    },
+    {
+      "id": "dc4c41de-8261-4c9b-83fe-b7a4856bc813",
+      "activity": "pengen doi :) "
+    }
+  ]
+}
