@@ -1,0 +1,20 @@
+{
+  "todos": [
+    {
+      "id": "1f9562ec-c73c-4469-8324-4b0b24c10013",
+      "activity": "Makan"
+    },
+    {
+      "id": "5c39c8a5-14e0-4f35-82e3-3f2e444d0fd4",
+      "activity": "Tidur"
+    },
+    {
+      "id": "a3389525-4f62-4b78-af41-416ccb03f348",
+      "activity": "Rebahan"
+    },
+    {
+      "id": "c69f544a-a6e5-41e0-a96e-9faa1e9146d8",
+      "activity": "Ngoding"
+    }
+  ]
+}
