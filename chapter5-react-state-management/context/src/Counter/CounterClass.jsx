@@ -8,7 +8,7 @@ const getStateFromLocalStorage = () => {
 }
 
 class CounterClass extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       count: getStateFromLocalStorage(),
@@ -16,7 +16,7 @@ class CounterClass extends React.Component {
 
     this.increment = this.increment.bind(this);
     this.decrement = this.decrement.bind(this);
-    this.reset = this.reset.bind(this)
+    this.reset = this.reset.bind(this);
 
     //using props
     this.incrementUsingProps = this.incrementUsingProps.bind(this)
@@ -26,11 +26,10 @@ class CounterClass extends React.Component {
     this.incrementFromLocalStorage = this.incrementFromLocalStorage.bind(this)
   }
 
-  increment(){
-    this.setState(
-      {count: this.state.count + 1}
-    );
+  increment() {
+    this.setState({ count: this.state.count + 1 });
   }
+
 
   incrementUsingProps(){
     const {max, step} = this.props //menggunakan destructuring
@@ -40,9 +39,9 @@ class CounterClass extends React.Component {
     })
   }
 
-  decrement(){
+  decrement() {
     //Tambahkan batasan count === min, menggunakan props
-    this.setState({count: this.state.count - 1});
+    this.setState({ count: this.state.count - 1 });
   }
 
   decrementUsingProps(){
@@ -83,7 +82,7 @@ class CounterClass extends React.Component {
           <button onClick={this.reset}>Reset</button>
         </section>
       </div>
-    )
+    );
   }
 }
 

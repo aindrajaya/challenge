@@ -1,16 +1,21 @@
-import React from 'react'
+import React from "react";
 
-export default function ListsTodo({data, del}) {
+export default function ListsTodo({ data, del, edit }) {
   return (
     <div>
       <ul>
         {data.map((list, idx) => (
           <div key={idx}>
-            {idx+1}. {list.todo}
-            <span onClick={() => del(list.id)}> X</span>
+            {idx + 1}. {list.todo}
+            <button style={{ marginLeft: "15px" }} onClick={() => edit(list)}>
+              Edit
+            </button>
+            <button style={{ marginLeft: "15px" }} onClick={() => del(list.id)}>
+              X
+            </button>
           </div>
         ))}
       </ul>
     </div>
-  )
+  );
 }
